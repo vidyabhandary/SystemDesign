@@ -47,3 +47,7 @@ Study Notes:
 16. The decision to use cloud services versus bare metal hosts is discussed, with the cloud offering benefits like simplicity of setup, cost advantages, better support and quality, and easier upgrades, but also potential drawbacks like vendor lock-in and lack of ownership over data and security. #cloudvsbareMetal
 
 17. Serverless Function as a Service (FaaS) is introduced as a potential solution for infrequently used or non-latency-sensitive functions, but the portability of FaaS is still a topic of debate. #FaaS
+
+Additional Study Notes -
+
+- [Dynamic Routing](https://github.com/vidyabhandary/til/blob/master/misc/Dynamic_Routing.md)
