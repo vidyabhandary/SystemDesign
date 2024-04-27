@@ -57,3 +57,75 @@ Questions and Answers:
 14. What can be done to address possible silent failures in a system? #SilentFailures #SystemMaintenance
 
     Answer: To address silent failures, robust logging, monitoring, and alerting mechanisms should be implemented to detect abnormal behavior or deviations from expected outcomes, ensuring timely identification and resolution of issues.
+
+## Q&A: (From Section 2.5.3 till Section 2.7)
+
+1. What is the purpose of a runbook, and what should it contain? #runbook #troubleshooting-procedures #automation #logging
+   Answer: A runbook is a document that contains a list of alerts, possible causes, and procedures to troubleshoot and fix issues that may arise in a service. It should include steps for identifying and resolving various problems, as well as instructions for automating repetitive steps that can be easily executed through commands or scripts. The runbook should also include logging mechanisms to track the actions taken during the troubleshooting process.
+
+2. What is considered runbook abuse, and why should it be avoided? #runbook-abuse
+   Answer: Runbook abuse refers to the failure to implement automated recovery procedures when it is possible to do so. It should be avoided because manually executing a series of commands or scripts to solve a problem is inefficient and error-prone, especially during high-stress situations like outages. Automating these steps not only improves reliability and consistency but also reduces the workload on the on-call engineers.
+
+3. What is the role of Site Reliability Engineering (SRE) teams in ensuring service reliability? #site-reliability-engineering #high-reliability #unit-testing #functional-testing #runbook-review
+   Answer: Site Reliability Engineering (SRE) teams play a crucial role in ensuring the high reliability of critical services. They develop tools and processes to maintain and improve the reliability of these services. SRE teams may have deployment criteria for services, such as requiring high unit test coverage, a functional test suite that passes their review, and a well-written runbook with comprehensive coverage and problem descriptions, which has been vetted by the SRE team.
+
+4. Why are blameless postmortems important after resolving incidents? #postmortem #root-cause-analysis #blameless-postmortem #self-healing #automation
+   Answer: Blameless postmortems are important after resolving incidents because they encourage open discussion and problem-solving without fear of blame or punishment. They help identify the root causes of the incidents and preventive measures to avoid similar issues in the future. Postmortems should focus on analyzing patterns in the mitigation actions taken and exploring ways to automate those actions, introducing self-healing characteristics to the system.
+
+5. What are the components of the ELK stack, and what are their respective roles? #elk-stack #logstash #elasticsearch #kibana #beats
+   Answer: The ELK stack consists of Elasticsearch, Logstash, Kibana, and Beats. Logstash is used for collecting and managing logs. Elasticsearch is a search engine that indexes and searches logs. Kibana is a visualization and dashboarding tool that uses Elasticsearch as a data source, allowing users to search and visualize logs. Beats is a lightweight data shipper that sends data to Elasticsearch or Logstash in real-time.
+
+6. What factors should be considered when choosing a monitoring tool? #monitoring-tools #features #platforms #resource-consumption #popularity #developer-support #learning-curve #configuration #integration #bugs #user-experience
+   Answer: When choosing a monitoring tool, several factors should be considered, including the features offered (logging, monitoring, alerting, dashboarding), supported platforms (operating systems, network equipment, etc.), resource consumption, popularity (ease of finding familiar engineers), and developer support (frequency of updates). Additionally, subjective characteristics like the learning curve, difficulty of configuration, ease of integration with other software, number and severity of bugs, and user experience (UX) of the tool's interface should also be evaluated.
+
+7. What is the purpose of time series databases (TSDB), and how do they help with data retention? #time-series-database #tsdb #downsampling #data-retention #compression #archiving
+   Answer: Time series databases (TSDB) are optimized for storing and serving time-series data, such as logs generated continuously over time. They help with data retention by employing techniques like downsampling, which computes averages over defined intervals for old data, reducing storage requirements. Additionally, TSDBs may compress or archive older data to cheaper storage media like tapes or optical disks, further reducing storage costs while retaining historical data for analysis or compliance purposes.
+
+8. What is the role of streaming and batch audits in ensuring data quality? #streaming-audit #batch-audit #silent-errors
+   Answer: Streaming and batch audits play a crucial role in ensuring data quality. They involve implementing ETL (Extract, Transform, Load) jobs that validate recently added or modified data in databases. These audits are particularly useful for detecting silent errors, which are errors that went undetected by earlier validation checks during data processing or service request handling. By continuously or periodically auditing data, organizations can identify and address data quality issues proactively.
+
+9. Explain the concept of anomaly detection and its applications. #anomaly-detection #machine-learning #anomaly-detection-algorithm #training-set #statistical-model #anomaly-probability #validation-set #test-set #model-selection #dataset-size #model-parameters #precision #recall
+   Answer: Anomaly detection is a machine learning technique used to identify unusual or abnormal datapoints in a dataset. It involves feeding a continuous stream of data into an anomaly detection algorithm, which processes a training set to develop a statistical model. This model assigns a probability that a given datapoint is anomalous. The model is validated and tested using labeled validation and test sets, respectively. Anomaly detection has applications in ensuring data quality by detecting anomalous data patterns, as well as deriving analytical insights by identifying unusual changes in metrics that could indicate problems or changing market conditions. The configuration of anomaly detection models involves tuning parameters such as the choice of machine learning models, sizes of the training, validation, and test sets, and model parameters that balance precision and recall.
+
+10. How can silent errors be detected and addressed? #silent-errors #batch-audit #database-auditing #alerts
+    Answer: Silent errors, which occur when endpoints return success status codes despite errors, can be detected and addressed through batch audits. Organizations can write batch ETL jobs to audit recent changes to their databases and raise alerts when failed audits are detected. By continuously monitoring and auditing database changes, silent errors that may have gone unnoticed during earlier validation checks can be identified and addressed proactively.
+
+11. What are the different techniques for implementing search functionality in applications? #search-bar #filtering #sql-search #like-operator #pattern-matching #limitations #client-side-library #match-sorter #small-datasets #search-engine #elasticsearch #scalability #large-datasets
+    Answer: There are several techniques for implementing search functionality in applications:
+12. SQL Database Search: Using the LIKE operator and pattern matching in SQL queries. However, this approach has limitations, such as difficulty in customization and lack of advanced features like boosting, fuzzy search, and text preprocessing.
+13. Client-side Library: Using client-side libraries like match-sorter (JavaScript) to perform search and sorting on the client. This is suitable for small datasets (up to a few GB) but may not scale well for larger datasets.
+14. Search Engine: Using a dedicated search engine like Elasticsearch, which is scalable and can handle large datasets efficiently. This approach offers advanced features like full-text search, fuzzy matching, and indexing capabilities.
+
+15. How does Elasticsearch handle search queries? #full-text-search #fuzzy-matching #elasticsearch-index #exact-match #fuzzy-match
+    Answer: Elasticsearch handles search queries by performing full-text searches against an Elasticsearch index, which is similar to a database in a relational database system. For exact matches, a query parameter can be used (`GET /index/_search?q=term`). For fuzzy matching, which allows approximate matches, a JSON request body can be sent (`GET /index/_search` with a JSON body containing the `match` query and `fuzziness` parameter). Elasticsearch supports advanced features like fuzzy matching to account for misspellings or typos in search terms or indexed data.
+
+16. What are the steps involved in creating and maintaining an Elasticsearch index? #index-creation #document-ingestion #indexing #index-updates #bulk-api #index-mapping #reindexing
+    Answer: The steps involved in creating and maintaining an Elasticsearch index include:
+17. Index Creation: Ingesting and indexing the documents that should be searchable when users submit search queries.
+18. Index Updates: Keeping the index updated with periodic or event-triggered indexing/delete requests using the Bulk API.
+19. Index Mapping Changes: To change the index mapping, either create a new index and drop the old one or use Elasticsearch's reindexing operation.
+
+20. What are the advantages and limitations of using Elasticsearch in place of a SQL database? #elasticsearch-as-sql #query-context #filter-context #eliminate-duplicate-storage #reduce-maintenance #schemaless #no-normalization #no-cqrs #no-acid #elasticsearch-sql
+    Answer: Advantages of using Elasticsearch in place of a SQL database include eliminating duplicate storage requirements and reducing maintenance overhead. Elasticsearch can be used for both querying (with relevance scores) and filtering (yes/no matches). However, Elasticsearch has limitations.
+
+Limitations of using Elasticsearch in place of a SQL database include:
+
+- Schemaless nature: Elasticsearch does not have a schema or enforce data normalization like relational databases with primary and foreign keys.
+- No CQRS or ACID: Elasticsearch does not provide Command Query Responsibility Segregation (CQRS) or ACID (Atomicity, Consistency, Isolation, Durability) properties found in relational databases.
+- Verbosity: The Elasticsearch Query Language (EQL) is JSON-based and more verbose compared to SQL, which can be easier to learn and use, especially for non-technical users.
+
+However, Elasticsearch SQL, introduced in version 6.3.0, provides a SQL-like syntax for querying Elasticsearch, potentially bridging the gap between Elasticsearch and relational databases in the future.
+
+15. What are the benefits of implementing search functionality using Elasticsearch? #search-engine #elasticsearch #scalability #large-datasets #full-text-search #fuzzy-matching
+
+Answer: Implementing search functionality using Elasticsearch offers several benefits:
+
+1. Scalability: Elasticsearch is designed to be scalable and can handle large datasets efficiently, making it suitable for applications with extensive search requirements.
+
+2. Full-text search: Elasticsearch provides robust full-text search capabilities, allowing users to search through large volumes of textual data quickly and accurately.
+
+3. Fuzzy matching: Elasticsearch supports fuzzy matching, enabling users to find relevant results even when there are misspellings or typos in the search terms or indexed data.
+
+4. Advanced features: Elasticsearch offers advanced features like boosting, weighting, text preprocessing (stemming, tokenization), and more, which enhance the search experience and enable more sophisticated search capabilities.
+
+By leveraging Elasticsearch for search functionality, applications can provide users with a fast, accurate, and feature-rich search experience, even when dealing with large datasets.

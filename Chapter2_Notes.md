@@ -1,6 +1,6 @@
 # Chapter 2 - A typical system design interview flow (Summary)
 
-Study Notes:
+## Study Notes: (Till Section 2.5.3)
 
 # Principles of System Design
 
@@ -127,3 +127,169 @@ References -
 - [Designing Data Intensive Applications by Martin Kleppman - Chapter 1: Reliable, Scalable, and Maintainable Applications](https://dataintensive.net/)
   #### P99
   If the 99th percentile response time is 1.5 seconds, that means 99 out of 100 requests take less than 1.5 seconds, and 1 out of 100 requests take 1.5 seconds or more
+
+---
+
+## Study Notes: (From Section 2.5.3 till Section 2.7)
+
+# Responding to Alerts and Runbooks
+
+## Preparation and Structure
+
+- Development teams maintain services and set up on-call schedules for high-urgency alerts. #on-call-schedule #high-urgency-alerts
+- Runbooks contain a list of alerts, possible causes, and procedures to troubleshoot and fix issues. #runbook #troubleshooting-procedures
+- Automate repetitive steps that can be easily executed through commands or scripts, along with logging. #automation #logging
+- Failure to implement automated recovery when possible is considered runbook abuse. #runbook-abuse
+- Display relevant metrics on dashboards if manual investigation is required. #dashboard #metrics
+
+## Site Reliability Engineering (SRE) Involvement
+
+- SRE teams develop tools and processes to ensure high reliability of critical services. #site-reliability-engineering #high-reliability
+- SRE teams may have deployment criteria, such as:
+  - High unit test coverage #unit-testing
+  - Functional test suite passing SRE review #functional-testing
+  - Well-written runbook with comprehensive coverage and problem descriptions, vetted by SRE team #runbook-review
+
+## Post-Incident Review
+
+- Author a postmortem after resolving incidents, identifying root causes and preventive measures. #postmortem #root-cause-analysis
+- Postmortems should be blameless to encourage open discussion and problem-solving. #blameless-postmortem
+- Identify patterns in mitigation actions and automate them to introduce self-healing characteristics. #self-healing #automation
+
+# Application-Level Logging Tools
+
+## Common Logging Tools
+
+- ELK (Elasticsearch, Logstash, Kibana) stack and Splunk are popular logging tools. #elk-stack #splunk
+- Logstash collects and manages logs. #logstash
+- Elasticsearch indexes and searches logs. #elasticsearch
+- Kibana visualizes and dashboards logs. #kibana
+- Beats ships data to Elasticsearch or Logstash in real-time. #beats
+
+## Monitoring Tools
+
+- Monitoring tools may be proprietary or open-source (FOSS). #monitoring-tools #proprietary #open-source
+- Tools differ in features (logging, monitoring, alerting, dashboarding), supported platforms, resource consumption, popularity, and developer support. #features #platforms #resource-consumption #popularity #developer-support
+- Subjective characteristics include learning curve, configuration difficulty, integration ease, bug severity, and user experience (UX). #learning-curve #configuration #integration #bugs #user-experience
+
+## Open-Source Monitoring Tools
+
+- Prometheus + Grafana (monitoring and visualization) #prometheus #grafana
+- Sensu (monitoring with Redis storage, third-party alerting) #sensu #redis #third-party-alerting
+- Nagios (monitoring and alerting) #nagios
+- Zabbix (monitoring with dashboard) #zabbix
+
+## Proprietary Monitoring Tools
+
+- Examples: Splunk, Datadog, New Relic #splunk #datadog #new-relic
+
+## Time Series Databases (TSDB)
+
+- Optimized for storing and serving time-series data, such as logs. #time-series-database #tsdb
+- Downsampling computes averages over intervals to reduce storage for old data. #downsampling #data-retention
+- Compression or archiving to cheaper storage for older data. #compression #archiving
+- Examples: Graphite, Prometheus, OpenTSDB, InfluxDB. #graphite #prometheus #opentsdb #influxdb
+
+# Streaming and Batch Audit of Data Quality
+
+## Data Quality
+
+- Ensuring data represents the real-world construct it refers to and can be used for intended purposes. #data-quality
+
+## Auditing
+
+- Implement streaming and batch ETL jobs to validate recently added or modified data. #streaming-audit #batch-audit
+- Useful for detecting silent errors (undetected by earlier validation checks). #silent-errors
+
+# Anomaly Detection
+
+## Concept
+
+- Machine learning technique to detect unusual datapoints. #anomaly-detection #machine-learning
+- Input data stream is processed by an anomaly detection algorithm. #anomaly-detection-algorithm
+- Algorithm develops a statistical model after processing a training set. #training-set #statistical-model
+- Model assigns probability of a datapoint being anomalous. #anomaly-probability
+- Model is validated and tested using labeled validation and test sets. #validation-set #test-set
+
+## Configuration
+
+- Tunable parameters include machine learning models, dataset sizes, and model parameters (precision vs. recall). #model-selection #dataset-size #model-parameters #precision #recall
+
+# Silent Errors and Auditing
+
+- Silent errors occur when endpoints return success status despite errors. #silent-errors
+- Write batch ETL jobs to audit recent database changes and raise alerts on failed audits. #batch-audit #database-auditing #alerts
+
+# Search Bar
+
+## Overview
+
+- Common feature in many applications to quickly find desired data. #search-bar
+- Can be a single search bar or include additional filtering components. #filtering
+
+## Implementation Techniques
+
+1. **SQL Database Search**
+
+   - Use LIKE operator and pattern matching. #sql-search #like-operator #pattern-matching
+   - Limitations: Difficult customization, no advanced features (boosting, fuzzy search, text preprocessing). #limitations
+
+2. **Client-side Library**
+
+   - Use libraries like match-sorter (JavaScript). #client-side-library #match-sorter
+   - Suitable for small datasets (up to a few GB). #small-datasets
+
+3. **Search Engine**
+   - Use search engines like Elasticsearch. #search-engine #elasticsearch
+   - Scalable and can handle large datasets. #scalability #large-datasets
+
+## Search Bar Implementation with Elasticsearch
+
+### Elasticsearch Query
+
+- Basic full-text search with fuzzy matching. #full-text-search #fuzzy-matching
+- Query against an Elasticsearch index. #elasticsearch-index
+- Exact match: `GET /index/_search?q=term` #exact-match
+- Fuzzy match: `GET /index/_search` with JSON request body. #fuzzy-match
+
+### Elasticsearch Index and Ingestion
+
+- Create an index by ingesting and indexing documents to be searched. #index-creation #document-ingestion #indexing
+- Keep index updated with periodic or event-triggered indexing/delete requests using Bulk API. #index-updates #bulk-api
+- Change index mapping by creating a new index and dropping the old one, or using reindexing operation. #index-mapping #reindexing
+
+### Using Elasticsearch in Place of SQL
+
+- Elasticsearch can be used like SQL. #elasticsearch-as-sql
+- Query context (relevance scores) vs. filter context (yes/no matches). #query-context #filter-context
+- Eliminates duplicate storage and maintenance overhead of SQL database. #eliminate-duplicate-storage #reduce-maintenance
+- Schemaless, no normalization or relations (primary/foreign keys). #schemaless #no-normalization
+- No Command Query Responsibility Segregation (CQRS) or ACID. #no-cqrs #no-acid
+- Elasticsearch SQL introduced in 6.3.0 with SQL-like syntax. #elasticsearch-sql
+
+| Tool                 | Features                                    | Platforms | Resource Consumption | Popularity | Developer Support |
+| -------------------- | ------------------------------------------- | --------- | -------------------- | ---------- | ----------------- |
+| ELK Stack            | Logging, Monitoring, Alerting, Dashboarding | Various   | Varies               | High       | Active            |
+| Prometheus + Grafana | Monitoring, Visualization                   | Various   | Moderate             | High       | Active            |
+| Sensu                | Monitoring, Third-party Alerting            | Various   | Moderate             | Moderate   | Active            |
+| Nagios               | Monitoring, Alerting                        | Various   | Moderate             | High       | Legacy            |
+| Zabbix               | Monitoring, Dashboarding                    | Various   | Moderate             | Moderate   | Active            |
+| Splunk               | Logging, Monitoring, Alerting, Dashboarding | Various   | High                 | High       | Commercial        |
+| Datadog              | Monitoring, Alerting, Dashboarding          | Various   | Moderate             | High       | Commercial        |
+| New Relic            | Monitoring, Alerting, Dashboarding          | Various   | Moderate             | High       | Commercial        |
+
+## Subjective Characteristics of Monitoring Tools
+
+| Tool                 | Learning Curve | Configuration Difficulty | Integration Ease | Bug Severity | User Experience (UX) |
+| -------------------- | -------------- | ------------------------ | ---------------- | ------------ | -------------------- |
+| ELK Stack            | Moderate       | Moderate                 | Moderate         | Low          | Good                 |
+| Prometheus + Grafana | Moderate       | Moderate                 | Good             | Low          | Good                 |
+| Sensu                | Moderate       | Moderate                 | Moderate         | Moderate     | Moderate             |
+| Nagios               | Steep          |                          |                  |              |                      |
+|                      |                |                          |                  |              |                      |
+
+References:
+
+1. [How Shazam Works](https://www.youtube.com/watch?v=kMNSAhsyiDg)
+
+2. [How to Reindex One Billion Documents in One Hour at SoundCloud](https://developers.soundcloud.com/blog/how-to-reindex-1-billion-documents-in-1-hour-at-soundcloud)
