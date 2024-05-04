@@ -288,8 +288,87 @@ References -
 | Nagios               | Steep          |                          |                  |              |                      |
 |                      |                |                          |                  |              |                      |
 
+Maintaining and Extending Applications
+
+## Continuous Improvement and Evolving Requirements #software-development #requirements-management
+
+- Applications are never truly complete; there are always new requirements and user feedback to address.
+- Ongoing efforts are needed to develop, maintain, deprecate, and decommission features based on changing needs.
+- Monitor API traffic and request contents to inform scaling and development decisions.
+
+### Maintenance Considerations #maintenance #dependencies #upgrades
+
+- Identify system components relying on external software packages or dependencies.
+- These components may require more frequent maintenance to keep up with updates and security patches.
+- Plan for versioning and upgrade strategies to handle breaking changes introduced by dependencies.
+- Implement thorough testing, feature flags, and versioning practices to mitigate the impact of breaking changes.
+- In-house developed components may require less frequent updates but still need processes for bug fixes, tech debt repayment, and refactoring.
+
+### Future Feature Development #feature-development #system-design
+
+- Discuss potential features that may need to be developed in the future.
+- Assess how these new features would impact the current system design and architecture.
+- Determine if modifications or extensions to the existing system are required.
+
+### Feature Deprecation and Decommissioning #feature-management #user-support
+
+- Identify features that may become obsolete or unnecessary in the future.
+- Develop strategies for gracefully deprecating and decommissioning these features.
+- Determine the appropriate level of user support and communication required during this process.
+- Provide clear documentation and guidance to users affected by the changes.
+
+## Supporting Additional User Types #user-types #scalability
+
+- Evaluate the potential need to extend the service to support different user categories (e.g., consumers, enterprises, manual users, programmatic users).
+- Discuss approaches for extending current services or building new dedicated services.
+- Analyze the trade-offs between these approaches, considering factors like complexity, security boundaries, code reuse, and maintainability.
+
+## Revisiting Architectural Decisions #architecture #design-decisions
+
+- Revisit and re-evaluate alternative architectural decisions made during the initial design phase.
+- Discuss these decisions in greater detail, considering new insights or evolving requirements.
+- Assess the potential impact of changing architectural decisions on the existing system.
+
+## Usability and User Feedback #usability #user-experience #metrics
+
+- Define usability metrics based on how users are intended to interact with the system.
+- Implement logging and data collection mechanisms to capture relevant user interaction data.
+- Set up batch ETL processes to compute usability metrics periodically and update dashboards or reports.
+
+### Usability Metric Examples
+
+- **Search Engine**: Average index of the result list that users click on (lower is better, indicating users find desired results near the top).
+- **Help Desk Tickets**: Number of help desk tickets created per day or week (lower is better, indicating a more self-service application).
+- **Net Promoter Score (NPS)**: Percentage of users rating their likelihood to recommend the application as 9 or 10 (out of 10) minus the percentage rating 6 or below.
+
+## Handling Edge Cases and Extreme Requirements #edge-cases #non-functional-requirements
+
+- Anticipate edge cases and new constraints that may be introduced later in the development process.
+- Discuss strategies to fulfill these edge cases or redesign the architecture to accommodate them.
+- Examples of potential edge cases and extreme requirements:
+  - **Payment Systems**: Supporting different credit card payment requirements across countries, store credit, coupon codes, etc.
+  - **Search Services**: Extending text search to images, audio, and video.
+  - **Booking Systems**: Handling room changes or finding available rooms across multiple hotels.
+  - **Social Networking Features**: Integrating social networking capabilities into existing services like news feed recommendations.
+  - **Scalability and Performance**: Supporting millions of followers/recipients, low-latency message delivery, accurate long-term data auditing.
+  - **Availability and Fault Tolerance**: Increasing availability for mission-critical services, handling component failures, and implementing mitigation strategies.
+  - **Cost Optimization**: Exploring trade-offs to reduce costs while maintaining performance and latency requirements.
+  - **Portability**: Enabling the application to be easily moved between cloud and on-premises environments, considering trade-offs like increased complexity and costs.
+
+## Cloud-Native Concepts #cloud-native #microservices #containers #automation
+
+- Discuss addressing non-functional requirements using cloud-native concepts and technologies:
+  - Microservices architecture
+  - Service mesh and sidecars for shared services (e.g., Istio)
+  - Containerization (e.g., Docker)
+  - Orchestration (e.g., Kubernetes)
+  - Automation (e.g., Skaffold, Jenkins)
+  - Infrastructure as Code (e.g., Terraform, Helm)
+
 References:
 
 1. [How Shazam Works](https://www.youtube.com/watch?v=kMNSAhsyiDg)
 
 2. [How to Reindex One Billion Documents in One Hour at SoundCloud](https://developers.soundcloud.com/blog/how-to-reindex-1-billion-documents-in-1-hour-at-soundcloud)
+
+3. [Git: Best Practices for Teams](https://www.youtube.com/watch?v=Hd_BMpn4sBA)

@@ -129,3 +129,60 @@ Answer: Implementing search functionality using Elasticsearch offers several ben
 4. Advanced features: Elasticsearch offers advanced features like boosting, weighting, text preprocessing (stemming, tokenization), and more, which enhance the search experience and enable more sophisticated search capabilities.
 
 By leveraging Elasticsearch for search functionality, applications can provide users with a fast, accurate, and feature-rich search experience, even when dealing with large datasets.
+
+## Q&A: (From Section 2.7 till Section 2.8)
+
+1. 1. What are the key considerations when maintaining and extending an application over time? #software-development #requirements-management #maintenance #feature-development #feature-management
+
+Answer: Maintaining and extending an application involves several key considerations:
+
+- Continuous improvement and addressing evolving requirements, as applications are never truly complete.
+- Identifying components that rely on external dependencies and plan for updates, security patches, and handling breaking changes.
+- Determining which components require more frequent maintenance due to their reliance on external packages or rapid development pace.
+- Evaluating potential future features and assessing their impact on the current system design and architecture.
+- Identifying obsolete or unnecessary features and developing strategies for gracefully deprecating and decommissioning them while providing adequate user support and communication.
+
+2. How can you ensure that your application remains usable and user-friendly? #usability #user-experience #metrics
+
+Answer: To ensure an application remains usable and user-friendly, you should:
+
+- Define usability metrics based on how users are intended to interact with the system, such as the average index of clicked search results, the number of help desk tickets, or the Net Promoter Score (NPS).
+- Implement logging and data collection mechanisms to capture relevant user interaction data.
+- Set up batch ETL processes to periodically compute usability metrics and update dashboards or reports for monitoring and analysis.
+- Continuously monitor and address usability issues based on the collected metrics and user feedback.
+
+3. What are some potential edge cases and extreme requirements that may arise, and how can they be addressed? #edge-cases #non-functional-requirements
+
+Answer: Potential edge cases and extreme requirements that may arise include:
+
+- Customizing payment systems to support different credit card requirements across countries, store credit, or coupon codes.
+- Extending text search services to handle new data types like images, audio, and video.
+- Handling room changes or finding available rooms across multiple hotels in a booking system.
+- Integrating social networking features into existing services like news feed recommendations.
+- Supporting millions of followers or recipients, and ensuring low-latency message delivery or accurate long-term data auditing.
+- Increasing availability and fault tolerance for mission-critical services, handling component failures, and implementing mitigation strategies.
+- Optimizing costs while maintaining performance and latency requirements.
+- Enabling application portability between cloud and on-premises environments, considering trade-offs like increased complexity and costs.
+
+These edge cases and extreme requirements may necessitate redesigning the architecture, making trade-offs, or implementing additional features or capabilities to accommodate them.
+
+4. What is the significance of revisiting architectural decisions, and when should it be done? #architecture #design-decisions
+
+Answer: Revisiting architectural decisions is crucial because:
+
+- Initial architectural decisions may need to be re-evaluated as new insights or evolving requirements emerge.
+- Changing architectural decisions can have a significant impact on the existing system, and their implications should be carefully assessed.
+- Revisiting architectural decisions allows for course correction and ensures that the system remains aligned with the project's goals and requirements.
+
+Architectural decisions should be revisited periodically, especially during major milestones or when significant changes in requirements or constraints arise.
+
+5. How can cloud-native concepts and technologies be leveraged to address non-functional requirements? #cloud-native #microservices #containers #automation
+
+Answer: Cloud-native concepts and technologies can be leveraged to address non-functional requirements in the following ways:
+
+- Adopting a microservices architecture can improve scalability, fault tolerance, and flexibility in addressing evolving requirements.
+- Implementing service mesh and sidecars (e.g., Istio) can provide shared services like traffic management, observability, and security across microservices.
+- Containerization (e.g., Docker) can facilitate consistent and portable application deployment across different environments.
+- Orchestration tools (e.g., Kubernetes) can automate container deployment, scaling, and management, improving efficiency and reliability.
+- Automation tools (e.g., Skaffold, Jenkins) can streamline development, testing, and deployment processes, reducing manual effort and increasing agility.
+- Infrastructure as Code (e.g., Terraform, Helm) can enable consistent and repeatable provisioning and management of infrastructure resources across different environments.
