@@ -26,3 +26,5 @@ Other links explored:
 3. [How Shazam Works](https://www.youtube.com/watch?v=kMNSAhsyiDg)
 
 4. [How to Reindex One Billion Documents in One Hour at SoundCloud](https://developers.soundcloud.com/blog/how-to-reindex-1-billion-documents-in-1-hour-at-soundcloud)
+
+5. [Git: Best Practices for Teams](https://www.youtube.com/watch?v=Hd_BMpn4sBA)
