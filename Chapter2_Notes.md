@@ -372,3 +372,33 @@ References:
 2. [How to Reindex One Billion Documents in One Hour at SoundCloud](https://developers.soundcloud.com/blog/how-to-reindex-1-billion-documents-in-1-hour-at-soundcloud)
 
 3. [Git: Best Practices for Teams](https://www.youtube.com/watch?v=Hd_BMpn4sBA)
+
+### May 11 2024
+
+During our conversations today, we engaged in insightful discussions centered around the following key points, drawing upon our collective experiences:
+
+##### Frequency of problems faced with CI/CD #CI #CD
+
+##### Incidents where CI builds succeed but CD deployments fail #CI #CD
+
+##### Time spent troubleshooting CI/CD issues #CI #CD
+
+##### Organizational-wide migrations in the last two years #organizational #migrations
+
+##### Shifting services between bare metal and cloud vendors #bare-metal #cloud
+
+##### History of security breaches and risk of future breaches #security #breaches #risk
+
+##### Critical evaluation of prospective manager's technical background #technical #background #manager
+
+##### Risks of accepting a non-technical engineering manager #non-technical #engineering #manager
+
+##### Using the four golden signals (latency, traffic, errors, saturation) #latency #traffic #errors #saturation
+
+##### Using the three monitoring instruments (metrics, dashboards, alerts) #metrics #dashboards #alerts
+
+References:
+
+1. [High Scalability](http://highscalability.com/)
+
+2. [Pragmatic Engineer Reverse Interviewing](https://blog.pragmaticengineer.com/reverse-interviewing/)
