@@ -9,6 +9,8 @@ We are currently reading the book which can be found free online at the followin
 2. [Chapter 1 - Q & A](https://github.com/vidyabhandary/SystemDesign/blob/main/Chapter1_QnA.md)
 3. [Chapter 2 - Notes](https://github.com/vidyabhandary/SystemDesign/blob/main/Chapter2_Notes.md)
 4. [Chapter 2 - Q & A](https://github.com/vidyabhandary/SystemDesign/blob/main/Chapter2_QnA.md)
+5. [Chapter 3 - Notes](https://github.com/vidyabhandary/SystemDesign/blob/main/Chapter3_Notes.md)
+6. [Chapter 3 - Q & A](https://github.com/vidyabhandary/SystemDesign/blob/main/Chapter3_QnA.md)
 
 ![](https://github.com/vidyabhandary/SystemDesign/blob/a30486c55cc9e5adee41fcb4266a330dd897e705/imgs/Tan-HI.png)
 
@@ -28,3 +30,19 @@ Other links explored:
 4. [How to Reindex One Billion Documents in One Hour at SoundCloud](https://developers.soundcloud.com/blog/how-to-reindex-1-billion-documents-in-1-hour-at-soundcloud)
 
 5. [Git: Best Practices for Teams](https://www.youtube.com/watch?v=Hd_BMpn4sBA)
+
+6. [High Scalability](http://highscalability.com/)
+
+7. [Pragmatic Engineer Reverse Interviewing](https://blog.pragmaticengineer.com/reverse-interviewing/)
+
+8. [XKCD - Modern Digital Infrastructure](https://xkcd.com/2347/)
+
+9. [xz Utils backdoor](https://www.youtube.com/watch?v=WaDdEosS520)
+
+10. [Avoiding fallback in distributed systems](https://aws.amazon.com/builders-library/avoiding-fallback-in-distributed-systems/)
+
+11. [LBaaS](https://github.com/vidyabhandary/til/blob/master/misc/LBaaS.md)
+
+12. [Key differences between MTTR, MTBF, RTO, and RPO](https://github.com/vidyabhandary/til/blob/master/misc/RTO_RPO_MTTR_MTBF.md)
+
+13. [Flash Boys by Michael Lewis](https://vidyabhandary.blogspot.com/2015/01/book-review-flash-boys-by-michael-lewis.html)
