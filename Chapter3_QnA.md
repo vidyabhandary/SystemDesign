@@ -1,4 +1,4 @@
-# Chapter 3 (Q&A) - A typical system design interview flow
+# Chapter 3 (Q&A) - Non-Functional Requirements
 
 Questions and Answers:
 
