@@ -11,6 +11,8 @@ We are currently reading the book which can be found free online at the followin
 4. [Chapter 2 - Q & A](https://github.com/vidyabhandary/SystemDesign/blob/main/Chapter2_QnA.md)
 5. [Chapter 3 - Notes](https://github.com/vidyabhandary/SystemDesign/blob/main/Chapter3_Notes.md)
 6. [Chapter 3 - Q & A](https://github.com/vidyabhandary/SystemDesign/blob/main/Chapter3_QnA.md)
+7. [Chapter 4 - Notes](https://github.com/vidyabhandary/SystemDesign/blob/main/Chapter4_Notes.md)
+8. [Chapter 4 - Q & A](https://github.com/vidyabhandary/SystemDesign/blob/main/Chapter4_QnA.md)
 
 ![](https://github.com/vidyabhandary/SystemDesign/blob/a30486c55cc9e5adee41fcb4266a330dd897e705/imgs/Tan-HI.png)
 
@@ -46,3 +48,5 @@ Other links explored:
 12. [Key differences between MTTR, MTBF, RTO, and RPO](https://github.com/vidyabhandary/til/blob/master/misc/RTO_RPO_MTTR_MTBF.md)
 
 13. [Flash Boys by Michael Lewis](https://vidyabhandary.blogspot.com/2015/01/book-review-flash-boys-by-michael-lewis.html)
+
+14. [Partitioning Vs Sharding](https://github.com/vidyabhandary/TIL/blob/501537d24742b8730b879e10ea22d009ba950ed4/misc/PartioningVsSharding.md)
