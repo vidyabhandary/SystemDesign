@@ -50,3 +50,7 @@ Other links explored:
 13. [Flash Boys by Michael Lewis](https://vidyabhandary.blogspot.com/2015/01/book-review-flash-boys-by-michael-lewis.html)
 
 14. [Partitioning Vs Sharding](https://github.com/vidyabhandary/TIL/blob/501537d24742b8730b879e10ea22d009ba950ed4/misc/PartioningVsSharding.md)
+
+15. [Airflow Vs Luigi](https://github.com/vidyabhandary/TIL/blob/b3958e1acb0e4db1c30c3d66a1102f7aba2b193e/misc/AirFlowVsLuigi.md)
+
+16. [Priority Queues in RabbitMQ](https://github.com/vidyabhandary/TIL/blob/b3958e1acb0e4db1c30c3d66a1102f7aba2b193e/misc/RabbitMQ_PriorityQs.md)

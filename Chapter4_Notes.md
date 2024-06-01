@@ -102,3 +102,54 @@
 References:
 
 1. [Partitioning Vs Sharding](https://github.com/vidyabhandary/TIL/blob/501537d24742b8730b879e10ea22d009ba950ed4/misc/PartioningVsSharding.md)
+
+## Scaling Storage Capacity with Sharded Databases
+
+- **As the database size grows beyond the capacity of a single host, consider using sharded storage solutions like HDFS or Cassandra, which are horizontally scalable and can support large storage capacities by adding more hosts.** #sharded-storage #horizontal-scaling #large-clusters
+
+## Aggregating Events
+
+- **Database writes are expensive to scale, so aim to reduce write rates through sampling and aggregation techniques.** #reduce-writes #sampling #aggregation
+- **Aggregating events combines multiple events into a single event, resulting in fewer database writes.** #event-aggregation #reduced-writes
+- **In multi-tier aggregation, each layer aggregates events from the previous tier, progressively reducing the number of hosts.** #multi-tier #progressive-reduction
+
+## Batch and Streaming ETL
+
+- **ETL (Extract, Transform, Load) is the process of copying data from sources to a destination system with different data representation.** #etl
+- **Batch processing refers to periodically processing data in batches, while streaming processes data in real-time as a continuous flow.** #batch-processing #streaming-processing
+- **An ETL pipeline consists of a Directed Acyclic Graph (DAG) of tasks, where nodes represent tasks, and ancestors are dependencies.** #dag #tasks #dependencies
+
+## ETL Tools
+
+- Common batch tools include Airflow and Luigi. #batch-tools
+- Common streaming tools include Kafka, Flink, Flume, and Scribe. #streaming-tools
+
+## Messaging Terminology
+
+- **Message broker: Translates messaging protocols between sender and receiver (e.g., Kafka, RabbitMQ).** #message-broker
+- **Event streaming: Continuous flow of events processed in real-time (e.g., Kafka).** #event-streaming
+
+## Push vs. Pull
+
+- Push is better for lossy applications like live audio/video streaming, where failed data delivery is not resent. #push #lossy-applications
+- Pull is better when the consumer has a continuously high load, making an empty queue unlikely. #pull #high-load
+- Pull is also better when the consumer is firewalled or the dependency has frequent changes, reducing the number of push requests. #pull #firewalled #frequent-changes
+- Push can be more scalable when collecting data from many sources, avoiding the complexity of maintaining multiple crawlers. #push #data-collection #crawlers
+
+## Kafka vs. RabbitMQ
+
+- **Kafka is more complex but provides a superset of RabbitMQ's capabilities and can replace RabbitMQ, but not vice versa.** #kafka #rabbitmq #capabilities
+- **Kafka is designed for scalability, reliability, and availability, with more complex setup and ZooKeeper dependency.** #kafka #scalability #reliability #availability #zookeeper
+- **Kafka provides durable message storage with replication across racks and data centers.** #kafka #durability #replication
+
+## Lambda Architecture
+
+- **A data-processing architecture running batch and streaming pipelines in parallel.** #lambda-architecture
+- **The fast pipeline trades off consistency and accuracy for lower latency using techniques like approximation algorithms, in-memory databases, and potentially no replication for faster processing.** #fast-pipeline #approximation #in-memory-databases #no-replication
+- **The slow pipeline uses MapReduce databases like Hive and Spark with HDFS, prioritizing consistency and accuracy over low latency.** #slow-pipeline #mapreduce #consistency #accuracy
+
+References:
+
+1. [Airflow Vs Luigi](https://github.com/vidyabhandary/TIL/blob/b3958e1acb0e4db1c30c3d66a1102f7aba2b193e/misc/AirFlowVsLuigi.md)
+
+2. [Priority Queues in RabbitMQ](https://github.com/vidyabhandary/TIL/blob/b3958e1acb0e4db1c30c3d66a1102f7aba2b193e/misc/RabbitMQ_PriorityQs.md)

@@ -76,3 +76,32 @@ Answer: Multi-leader replication, where writes can occur on any leader node, int
 Answer: In leaderless replication, where all nodes are equal and reads/writes can occur on any node, the concept of quorum is used to maintain consistency. A quorum is the minimum number of nodes that must agree or acknowledge an operation for it to be considered successful and consistent.
 
 By setting appropriate read and write quorums, leaderless replication systems can balance consistency and availability. For example, if there are N nodes, setting both read and write quorums to N/2 + 1 ensures that any read or write operation involves a majority of nodes, providing strong consistency.
+
+# Section 4.4 to 4.7
+
+1. What are the options for handling data when the database size exceeds a single host's capacity? #database-scaling #single-host-capacity
+   Answer: The two main options are: a) Delete old rows to make space, or b) Use sharded storage solutions like HDFS or Cassandra, which can scale horizontally by adding more hosts to support larger storage capacities. #delete-old-data #sharded-storage #horizontal-scaling
+
+2. Why should we aim to reduce the rate of database writes in our system's design? #reduce-database-writes
+   Answer: Database writes are difficult and expensive to scale. Reducing the write rate through techniques like sampling and aggregation not only reduces the load on the database but also slows down the growth of the database size. #sampling #aggregation #slower-database-growth
+
+3. What is event aggregation, and how can it be implemented? #event-aggregation #implementation
+   Answer: Event aggregation combines multiple events into a single event, reducing the number of database writes. It can be implemented using a streaming pipeline with multiple stages, where each subsequent stage has fewer hosts, reducing resource requirements. Replication and checkpointing ensure fault tolerance and data accuracy. #reduced-writes #streaming-pipeline #multi-stage #replication #checkpointing
+
+4. How can partitioning be used in event aggregation, and what are its benefits? #partitioning #benefits
+   Answer: Partitioning involves configuring the load balancer to forward events to specific hosts based on their contents. This allows allocating different numbers of hosts to each partition based on expected traffic distribution. Partitions can also be adjusted dynamically to balance traffic across them. #load-balancer-configuration #uneven-traffic #resource-allocation #dynamic-partitioning
+
+5. What is the difference between batch and streaming processing in the context of ETL? #batch-processing #streaming-processing #etl
+   Answer: Batch processing refers to processing data in periodic batches, regardless of new events, similar to polling. Streaming processing refers to a continuous flow of data being processed in real-time, similar to interrupt-driven processing when new events occur. #periodic-batches #polling #continuous-flow #real-time #interrupt-driven
+
+6. What is an ETL pipeline, and what are its components? #etl-pipeline #components
+   Answer: An ETL (Extract, Transform, Load) pipeline consists of a Directed Acyclic Graph (DAG) of tasks, where nodes represent tasks, and ancestors are dependencies. A single run of the pipeline is called a job. The tasks are responsible for extracting data from sources, transforming it, and loading it into the destination system. #dag #tasks #dependencies #job
+
+7. How can a simple batch ETL pipeline be horizontally scaled for better scalability and availability? #horizontal-scaling #batch-etl
+   Answer: Dedicated job scheduling systems like Airflow and Luigi can be used for horizontal scaling. They provide web UIs, DAG visualization, cluster support, and better handling of parallelism and high availability compared to a simple crontab-based approach. #job-scheduling-systems #web-ui #dag-visualization #cluster-support #parallelism #high-availability
+
+8. Explain the key differences between Kafka and RabbitMQ. #kafka #rabbitmq #comparison
+   Answer: Kafka is more complex than RabbitMQ but provides a superset of capabilities. It is designed for scalability, reliability, and availability, with durable message storage and replication. RabbitMQ is simpler to set up but not as scalable or durable by default. Kafka allows repeated consumption of events for failure tolerance, while RabbitMQ follows traditional queue behavior. #complexity #superset-capabilities #scalability #reliability #availability #durability #replication #failure-tolerance #queue-behavior
+
+9. What is Lambda architecture, and when is it useful? #lambda-architecture #use-case
+   Answer: Lambda architecture is a data-processing architecture for big data, running batch and streaming pipelines in parallel. The fast pipeline trades off consistency and accuracy for lower latency, while the slow pipeline prioritizes consistency and accuracy over low latency. It is useful for systems involving big data that require both consistency/accuracy and low latency. #big-data #fast-pipeline #consistency #accuracy #low-latency #slow-pipeline
