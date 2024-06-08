@@ -105,3 +105,64 @@ By setting appropriate read and write quorums, leaderless replication systems ca
 
 9. What is Lambda architecture, and when is it useful? #lambda-architecture #use-case
    Answer: Lambda architecture is a data-processing architecture for big data, running batch and streaming pipelines in parallel. The fast pipeline trades off consistency and accuracy for lower latency, while the slow pipeline prioritizes consistency and accuracy over low latency. It is useful for systems involving big data that require both consistency/accuracy and low latency. #big-data #fast-pipeline #consistency #accuracy #low-latency #slow-pipeline
+
+10. **#NormalizationBenefits** What are the benefits of normalization when data fits in a single host?
+
+    - Consistent data with no duplicates
+    - Faster inserts and updates (query only one table)
+    - Smaller database size and faster reads (no duplicate data)
+    - Fewer indexes, faster index rebuilds
+    - Join only required tables in queries
+
+11. **#NormalizationDisadvantages** Disadvantages of normalization?
+
+    - Complex queries requiring multiple table joins
+    - Increased memory usage for queries
+
+12. **#CachingBenefits** Benefits of caching?
+
+    - Improved performance (memory faster than disk)
+    - Increased availability (serve cached data if database unavailable)
+    - Enhanced scalability (serve frequently requested data from cache)
+
+13. **#ReadStrategies** Difference between cache-aside and read-through?
+
+    - Cache-aside: Read from cache first, on miss read from database and write to cache
+    - Read-through: Application requests cache, cache handles database requests if needed
+    - Cache-aside best for read-heavy loads, read-through cannot group multiple database requests
+
+14. **#WriteStrategies** Differences between write strategies?
+
+    - Write-through: Every write goes to cache and database (consistent but slower)
+    - Write-back/behind: Application writes to cache, cache periodically flushes to database (faster)
+    - Write-around: Application only writes to database, cache updated on miss
+
+15. **#SeparateCachingService** Why caching as a separate service?
+
+    - Services are stateless, requests randomly assigned (reducing cache hits on hosts)
+    - Caching effective for uneven request patterns and hot shards
+    - Avoid cache wipes during frequent deployments on hosts
+    - Independent scaling and optimized hardware/VMs for caching
+    - Request coalescing (deduplicate requests to service)
+
+16. **#DataNotToBeCached** What information should not be cached?
+
+    - Private information (e.g., bank account details)
+    - Realtime public information (e.g., stock prices, flight times)
+    - Paid or copyrighted content (e.g., books, videos)
+
+17. **#CacheInvalidation** Client-side cache invalidation techniques?
+
+    - Setting max-age value
+    - Fingerprinting files with hashes or query parameters
+
+18. **#CacheReplacement** Common cache replacement policies in caching services?
+
+    - Random replacement
+    - Least Recently Used (LRU)
+    - First In First Out (FIFO)
+    - Last In First Out (LIFO)
+
+19. **#CacheWarming** Cache warming pros and cons?
+    - Pros: First request has low latency like subsequent requests
+    - Cons: Complexity, additional traffic, service load, slow first user, long expiry times, cache size

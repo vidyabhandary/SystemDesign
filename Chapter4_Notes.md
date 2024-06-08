@@ -153,3 +153,99 @@ References:
 1. [Airflow Vs Luigi](https://github.com/vidyabhandary/TIL/blob/b3958e1acb0e4db1c30c3d66a1102f7aba2b193e/misc/AirFlowVsLuigi.md)
 
 2. [Priority Queues in RabbitMQ](https://github.com/vidyabhandary/TIL/blob/b3958e1acb0e4db1c30c3d66a1102f7aba2b193e/misc/RabbitMQ_PriorityQs.md)
+
+# Denormalization
+
+- **#ConsistentData** - No duplicate data, ensuring consistency across tables.
+- **#FasterInsertsAndUpdates** - Only one table needs to be queried for inserts and updates.
+- **#SmallerDatabaseSize** - No duplicate data, leading to smaller tables and faster read operations.
+
+# Caching Strategies
+
+- **#ImprovedPerformance** - Caches use memory, which is faster and more expensive than disk-based databases.
+- **#IncreasedAvailability** - If the database is unavailable, cached data can still be served, albeit limited to what is cached.
+- **#EnhancedScalability** - Caches can serve frequently requested data, reducing load on the backend and improving scalability.
+
+## Read Strategies
+
+- **#ReadFromCache** - The application first reads from the cache.
+- **#CacheMiss** - On a cache miss, the application reads from the database and writes the data to the cache.
+- **#ReadHeavyLoads** - Cache-aside is best for read-heavy loads.
+
+## Write Strategies
+
+- **#ConsistentCache** - Every write goes through the cache and then to the database, ensuring cache consistency.
+- **#SlowerWrites** - Writes are slower since they happen on both the cache and database.
+
+# Caching as a Separate Service
+
+- **#StatelessServices** - Services are designed to be stateless, with requests randomly assigned to hosts, reducing the likelihood of cache hits on individual hosts.
+- **#IndependentScaling** - Caching services can scale independently of the services they serve, using optimized hardware or virtual machines.
+
+# Data Caching
+
+- **#PrivateInformation** - Private information, such as bank account details, must never be cached.
+- **#RevalidateChangingData** - Information like flight ticket or hotel room availability can be cached but should be revalidated against the origin server.
+
+# Cache Invalidation
+
+- **#MaxAge** - Setting a `max-age` value to control cache expiration.
+- **#Fingerprinting** - Fingerprinting files with hashes or query parameters to ensure correct file versions are served.
+
+# Cache Warming
+
+- **#AdditionalComplexity** - Implementing cache warming adds complexity, especially for large caching services with thousands of hosts.
+- **#AdditionalTraffic** - Cache warming generates additional traffic by querying services and databases to populate the cache.
+- **#ServiceLoad** - Services and databases may not be able to handle the load from cache warming.
+
+# Cache Strategies
+
+| Cache Strategy    | Description                                                        | When to Use                                          |
+| ----------------- | ------------------------------------------------------------------ | ---------------------------------------------------- |
+| Cache-Aside       | Check cache first, on miss read from database and write to cache   | Read-heavy workloads, simple implementation          |
+| Read-Through      | Cache handles reads, fetches from database on miss and caches data | Read-heavy workloads, abstracted caching logic       |
+| Write-Through     | Every write goes to cache and database (consistent but slower)     | Data consistency is critical, read-heavy workloads   |
+| Write-Back/Behind | Write to cache, cache periodically flushes to database (faster)    | Write-heavy workloads, data consistency not critical |
+| Write-Around      | Write directly to database, cache updated on miss                  | Write-heavy workloads, data integrity is critical    |
+
+ℹ️ _Optimize your system's performance and scalability with these database and caching insights!_
+
+🚀 Designing stateful vs. stateless services:
+
+- Stateful services are complex; designs lean towards stateless with shared stateful services.
+
+💾 Storage categories:
+
+- Understand database types: SQL, NoSQL (column-oriented, key-value), Document, Graph, File, Block, Object.
+
+🔍 Data storage decisions:
+
+- Choose between database and other storage categories.
+
+🔄 Replication techniques:
+
+- Single-leader, multi-leader, leaderless replication, and more for scaling databases.
+
+🔒 Sharding for scaling:
+
+- Essential when a database surpasses single-host storage capacity.
+
+⚙️ Database optimization:
+
+- Minimize writes, aggregate events, utilize Lambda architecture, denormalize for read latency.
+
+🔍 Query optimization:
+
+- Cache frequent queries, employ read strategies, understand cache tradeoffs.
+
+🔃 Cache management:
+
+- Cache-aside for read-heavy loads, consider cache-through and cache-back strategies.
+
+💡 Cache best practices:
+
+- Use dedicated caching service, cache public not private data, employ effective cache invalidation strategies.
+
+🔍 Cache warming:
+
+- Speed up first user access, but be aware of disadvantages.
