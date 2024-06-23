@@ -13,6 +13,8 @@ We are currently reading the book which can be found free online at the followin
 6. [Chapter 3 - Q & A](https://github.com/vidyabhandary/SystemDesign/blob/main/Chapter3_QnA.md)
 7. [Chapter 4 - Notes](https://github.com/vidyabhandary/SystemDesign/blob/main/Chapter4_Notes.md)
 8. [Chapter 4 - Q & A](https://github.com/vidyabhandary/SystemDesign/blob/main/Chapter4_QnA.md)
+9. [Chapter 5 - Notes](https://github.com/vidyabhandary/SystemDesign/blob/main/Chapter5_Notes.md)
+10. [Chapter 5 - Q & A](https://github.com/vidyabhandary/SystemDesign/blob/main/Chapter5_QnA.md)
 
 ![](https://github.com/vidyabhandary/SystemDesign/blob/a30486c55cc9e5adee41fcb4266a330dd897e705/imgs/Tan-HI.png)
 
@@ -54,3 +56,5 @@ Other links explored:
 15. [Airflow Vs Luigi](https://github.com/vidyabhandary/TIL/blob/b3958e1acb0e4db1c30c3d66a1102f7aba2b193e/misc/AirFlowVsLuigi.md)
 
 16. [Priority Queues in RabbitMQ](https://github.com/vidyabhandary/TIL/blob/b3958e1acb0e4db1c30c3d66a1102f7aba2b193e/misc/RabbitMQ_PriorityQs.md)
+
+17. [Saga Pattern](https://www.youtube.com/watch?v=d2z78guUR4g)
