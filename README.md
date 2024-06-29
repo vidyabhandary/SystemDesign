@@ -15,6 +15,8 @@ We are currently reading the book which can be found free online at the followin
 8. [Chapter 4 - Q & A](https://github.com/vidyabhandary/SystemDesign/blob/main/Chapter4_QnA.md)
 9. [Chapter 5 - Notes](https://github.com/vidyabhandary/SystemDesign/blob/main/Chapter5_Notes.md)
 10. [Chapter 5 - Q & A](https://github.com/vidyabhandary/SystemDesign/blob/main/Chapter5_QnA.md)
+11. [Chapter 6 - Notes](https://github.com/vidyabhandary/SystemDesign/blob/main/Chapter6_Notes.md)
+12. [Chapter 6 - Q & A](https://github.com/vidyabhandary/SystemDesign/blob/main/Chapter6_QnA.md)
 
 ![](https://github.com/vidyabhandary/SystemDesign/blob/a30486c55cc9e5adee41fcb4266a330dd897e705/imgs/Tan-HI.png)
 
@@ -58,3 +60,7 @@ Other links explored:
 16. [Priority Queues in RabbitMQ](https://github.com/vidyabhandary/TIL/blob/b3958e1acb0e4db1c30c3d66a1102f7aba2b193e/misc/RabbitMQ_PriorityQs.md)
 
 17. [Saga Pattern](https://www.youtube.com/watch?v=d2z78guUR4g)
+
+18. [Choose Boring Technology](https://mcfunley.com/choose-boring-technology)
+
+19. [Spoken word version of the essay - Choose Boring Technology](https://boringtechnology.club/)
