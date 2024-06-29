@@ -34,43 +34,6 @@
 
 10. **Cross-platform Development**: Frameworks like React Native, Flutter, and Ionic aim to reduce duplicate work across different platforms.
 
-Simplified Mindmap
-
-API Gateway and Service Mesh
-|
-+-- API Gateway
-| +-- Functionalities
-| | +-- Security
-| | +-- Error-checking
-| | +-- Performance and Availability
-| | +-- Logging and Analytics
-| +-- Benefits
-| +-- Challenges
-|
-+-- Service Mesh
-| +-- Sidecar Pattern
-| +-- Components
-| | +-- Control Plane
-| | +-- Data Plane
-| | +-- Observability Plane
-| +-- Benefits
-|
-+-- Metadata Service
-| +-- Purpose
-| +-- Benefits
-| +-- Tradeoffs
-|
-+-- Service Discovery
-| +-- Concept
-| +-- Service Registry
-| +-- Importance in Microservices
-|
-+-- Development Frameworks
-+-- Web Development
-+-- Mobile Development
-+-- Backend Development
-+-- Desktop Development
-
 References:
 
 1. [Choose Boring Technology](https://mcfunley.com/choose-boring-technology)
