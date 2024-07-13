@@ -38,3 +38,77 @@ References:
 
 1. [Choose Boring Technology](https://mcfunley.com/choose-boring-technology)
 2. [Spoken word version of the essay - Choose Boring Technology](https://boringtechnology.club/)
+
+## Library vs. Service
+
+1. **Version Control**:
+
+   - Libraries: User-controlled, risk of outdated versions
+   - Services: Centrally managed, easier to keep updated
+     #VersionManagement
+
+2. **Language Compatibility**:
+
+   - Libraries: Language-specific
+   - Services: Technology-agnostic
+     #Compatibility
+
+3. **Performance**:
+
+   - Libraries: Predictable latency, consistent behavior
+   - Services: Variable latency, network-dependent
+     #Performance
+
+4. **Scalability**:
+
+   - Libraries: Scales with application, user bears cost
+   - Services: Independently scalable, provider bears cost
+     #Scalability
+
+5. **Debugging**:
+   - Libraries: Limited access to user environments
+   - Services: Better access to logs and controlled environments
+     #Debugging
+
+## API Paradigms
+
+### REST
+
+- Stateless, uses HTTP methods
+- Simple to learn and implement
+- Good caching support
+- Lacks standardized documentation and versioning
+  #REST
+
+### RPC
+
+- Efficient for resource-constrained environments
+- Strong schema definition
+- Binary protocol can be challenging to debug
+  #RPC
+
+### GraphQL
+
+- Flexible data fetching
+- Reduces over-fetching and under-fetching
+- Higher complexity, steeper learning curve
+  #GraphQL
+
+### WebSocket
+
+- Full-duplex, real-time communication
+- Good for live updates and P2P
+- Less scalable, more resource-intensive
+  #WebSocket
+
+## Choosing the Right Paradigm
+
+Consider:
+
+1. Application requirements
+2. Performance needs
+3. Scalability
+4. Client diversity
+5. Team expertise
+6. Security requirements
+   #APISelection
