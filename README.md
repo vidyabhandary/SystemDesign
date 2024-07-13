@@ -64,3 +64,5 @@ Other links explored:
 18. [Choose Boring Technology](https://mcfunley.com/choose-boring-technology)
 
 19. [Spoken word version of the essay - Choose Boring Technology](https://boringtechnology.club/)
+
+20. [Log4j (CVE-2021-44228) RCE Vulnerability Explained](https://www.youtube.com/watch?v=0-abhd-CLwQ)

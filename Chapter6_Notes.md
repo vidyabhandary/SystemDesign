@@ -112,3 +112,12 @@ Consider:
 5. Team expertise
 6. Security requirements
    #APISelection
+
+References:
+
+1. [Log4j (CVE-2021-44228) RCE Vulnerability Explained](https://www.youtube.com/watch?v=0-abhd-CLwQ)
+
+Repeat References
+
+2. [XKCD - Modern Digital Infrastructure](https://xkcd.com/2347/)
+3. [xz Utils backdoor](https://www.youtube.com/watch?v=WaDdEosS520)
