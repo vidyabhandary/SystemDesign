@@ -17,6 +17,8 @@ We are currently reading the book which can be found free online at the followin
 10. [Chapter 5 - Q & A](https://github.com/vidyabhandary/SystemDesign/blob/main/Chapter5_QnA.md)
 11. [Chapter 6 - Notes](https://github.com/vidyabhandary/SystemDesign/blob/main/Chapter6_Notes.md)
 12. [Chapter 6 - Q & A](https://github.com/vidyabhandary/SystemDesign/blob/main/Chapter6_QnA.md)
+13. [Chapter 7 - Notes](https://github.com/vidyabhandary/SystemDesign/blob/main/Chapter7_Notes.md)
+14. [Chapter 7 - Q & A](https://github.com/vidyabhandary/SystemDesign/blob/main/Chapter7_QnA.md)
 
 ![](https://github.com/vidyabhandary/SystemDesign/blob/a30486c55cc9e5adee41fcb4266a330dd897e705/imgs/Tan-HI.png)
 
@@ -66,3 +68,7 @@ Other links explored:
 19. [Spoken word version of the essay - Choose Boring Technology](https://boringtechnology.club/)
 
 20. [Log4j (CVE-2021-44228) RCE Vulnerability Explained](https://www.youtube.com/watch?v=0-abhd-CLwQ)
+
+21. [Run ExecuteNonQuery, ExecuteReader, and ExecuteScalar Operations using the SQL adapter](https://learn.microsoft.com/en-us/biztalk/adapters-and-accelerators/adapter-sql/executenonquery-executereader-and-executescalar-using-the-sql-adapter)
+
+ExecuteNonQuery: Use this operation to execute any arbitrary SQL statements in SQL Server if you do not want any result set to be returned. You can use this operation to create database objects or change data in a database by executing UPDATE, INSERT, or DELETE statements.
