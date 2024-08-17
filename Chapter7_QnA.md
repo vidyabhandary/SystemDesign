@@ -1,4 +1,4 @@
-# Chapter 7 - Design Craiglist - (Q&A)
+# Chapter 7 - Design Craigslist - (Q&A)
 
 1. Q: How does the system handle the different needs of viewers and posters in a Craigslist-like platform?
    A: The system distinguishes between two main user types: viewers and posters, each with distinct functionality. Posters can create and delete posts, search their own posts, and include details such as title, description, price, location, and photos. They also receive email notifications for post renewal every 7 days. Viewers, on the other hand, can view all posts or search within a city (limited to the last 7 days), apply filters to results, view individual post details, contact posters, and report fraudulent or misleading posts.
