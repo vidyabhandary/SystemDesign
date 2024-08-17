@@ -1,6 +1,6 @@
-# Chapter 7 - Design Craiglist (Summary)
+# Chapter 7 - Design Craigslist (Summary)
 
-[Mindmap for Design Craiglist](https://github.com/vidyabhandary/SystemDesign/blob/main/imgs/DesignCraigList.svg)
+[Mindmap for Design Craigslist](https://github.com/vidyabhandary/SystemDesign/blob/main/imgs/DesignCraigList.svg)
 
 1. User Stories and Requirements
 
