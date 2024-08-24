@@ -72,3 +72,17 @@ Other links explored:
 21. [Run ExecuteNonQuery, ExecuteReader, and ExecuteScalar Operations using the SQL adapter](https://learn.microsoft.com/en-us/biztalk/adapters-and-accelerators/adapter-sql/executenonquery-executereader-and-executescalar-using-the-sql-adapter)
 
 ExecuteNonQuery: Use this operation to execute any arbitrary SQL statements in SQL Server if you do not want any result set to be returned. You can use this operation to create database objects or change data in a database by executing UPDATE, INSERT, or DELETE statements.
+
+22. [Intro to Large Language Models by Andrej Karpathy](https://www.youtube.com/watch?v=zjkBMFhNj_g)
+
+23. [Load balancing](https://blog.algomaster.io/p/load-balancing-algorithms-explained-with-code)
+
+24. [Availability and explanation of nines](https://www.youtube.com/watch?v=aqnkPCfsgno)
+
+25. [What is Ngnix?](https://www.youtube.com/watch?v=iInUBOVeBCc)
+
+26. [What is Hadoop](https://www.youtube.com/watch?v=9s-vSeWej1U)
+
+27. [Zerodha - Moving from managed PostgreSQL to self-hosted PostgreSQL](https://www.youtube.com/watch?v=k4MIIiuMPRc)
+
+The speaker works for a company called Arceusium, which is a data-first company that manages over 650 billion dollars of assets for the world's most sophisticated financial organizations. The speaker then goes on to talk about why the company decided to move from Amazon’s Relational Database Service (RDS) to PostgreSQL, and the challenges they faced along the way. Finally, the speaker talks about why the company is now moving from Aurora to community PostgreSQL.
