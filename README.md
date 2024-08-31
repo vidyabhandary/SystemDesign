@@ -86,3 +86,7 @@ ExecuteNonQuery: Use this operation to execute any arbitrary SQL statements in S
 27. [Zerodha - Moving from managed PostgreSQL to self-hosted PostgreSQL](https://www.youtube.com/watch?v=k4MIIiuMPRc)
 
 The speaker works for a company called Arceusium, which is a data-first company that manages over 650 billion dollars of assets for the world's most sophisticated financial organizations. The speaker then goes on to talk about why the company decided to move from Amazon’s Relational Database Service (RDS) to PostgreSQL, and the challenges they faced along the way. Finally, the speaker talks about why the company is now moving from Aurora to community PostgreSQL.
+
+28. [Database Caching](https://www.prisma.io/dataguide/managing-databases/introduction-database-caching)
+
+29. [What is a hot shard](https://opensearch.org/docs/latest/monitoring-your-cluster/pa/rca/shard-hotspot/)
