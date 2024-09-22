@@ -112,48 +112,54 @@ The main difference is that Leaky Bucket smooths out traffic to a constant rate,
 
 A: The Fixed Window Counter algorithm is a rate-limiting approach that works as follows:
 
-    1. Time is divided into fixed intervals (e.g., 1-minute windows).
-    2. For each interval, a counter tracks the number of requests.
-    3. When a new request arrives, the current window's counter is incremented.
-    4. If the counter exceeds the limit, the request is rate-limited.
-    5. At the start of each new interval, the counter resets to zero.
+1. Time is divided into fixed intervals (e.g., 1-minute windows).
+2. For each interval, a counter tracks the number of requests.
+3. When a new request arrives, the current window's counter is incremented.
+4. If the counter exceeds the limit, the request is rate-limited.
+5. At the start of each new interval, the counter resets to zero.
 
-    Advantages:
-    - Simple to implement and understand
-    - Low memory usage (only one counter per time window)
-    - Works well for many common rate-limiting scenarios
+Advantages:
 
-    Limitations:
-    - Can allow burst traffic at the edges of time windows
-    - For example, if the limit is 100 requests per minute, a user could potentially make 200 requests in a short period spanning two adjacent windows
-    - Less accurate for shorter time intervals
+- Simple to implement and understand
+- Low memory usage (only one counter per time window)
+- Works well for many common rate-limiting scenarios
 
-    This algorithm is often used due to its simplicity, but it may not be suitable for scenarios requiring very precise control over traffic patterns.
+Limitations:
 
-    #FixedWindowCounter #RateLimitingAlgorithms #TrafficManagement
+- Can allow burst traffic at the edges of time windows
+- For example, if the limit is 100 requests per minute, a user could potentially make 200 requests in a short period spanning two adjacent windows
+- Less accurate for shorter time intervals
+
+This algorithm is often used due to its simplicity, but it may not be suitable for scenarios requiring very precise control over traffic patterns.
+
+#FixedWindowCounter #RateLimitingAlgorithms #TrafficManagement
 
 ### 7. Q: How does the Sliding Window Log algorithm work, and why might it be considered more accurate but potentially problematic for high-traffic systems?
 
-    A: The Sliding Window Log algorithm works as follows:
+A: The Sliding Window Log algorithm works as follows:
 
-    1. It maintains a log of timestamp for each request.
-    2. When a new request arrives, it adds the current timestamp to the log.
-    3. It then counts the number of timestamps in the log that fall within the rate limit window (e.g., last 60 seconds).
-    4. If this count exceeds the limit, the request is rate-limited.
-    5. Old timestamps outside the current window are regularly removed.
+1. It maintains a log of timestamp for each request.
+2. When a new request arrives, it adds the current timestamp to the log.
+3. It then counts the number of timestamps in the log that fall within the rate limit window (e.g., last 60 seconds).
+4. If this count exceeds the limit, the request is rate-limited.
+5. Old timestamps outside the current window are regularly removed.
 
-    This algorithm is considered more accurate because:
-    - It provides a true sliding window, evaluating the exact number of requests in the last N seconds.
-    - It prevents the edge-case bursts that can occur with fixed window algorithms.
+This algorithm is considered more accurate because:
 
-    However, it can be problematic for high-traffic systems because:
-    - It requires storing a timestamp for every request, which can consume significant memory in high-traffic scenarios.
-    - The process of counting timestamps and removing old ones can become computationally expensive as the number of requests increases.
-    - For systems handling millions of requests per second, the memory and CPU overhead could become prohibitive.
+- It provides a true sliding window, evaluating the exact number of requests in the last N seconds.
+- It prevents the edge-case bursts that can occur with fixed window algorithms.
 
-    As a result, while this algorithm provides high accuracy, it's often not practical for large-scale, high-traffic applications unless implemented with very efficient data structures and storage systems.
+However, it can be problematic for high-traffic systems because:
 
-    #SlidingWindowLog #RateLimitingAlgorithms #HighTrafficSystems
+- It requires storing a timestamp for every request, which can consume significant memory in high-traffic scenarios.
+- The process of counting timestamps and removing old ones can become computationally expensive as the number of requests increases.
+- For systems handling millions of requests per second, the memory and CPU overhead could become prohibitive.
+
+As a result, while this algorithm provides high accuracy, it's often not practical for large-scale, high-traffic applications unless implemented with very efficient data structures and storage systems.
+
+#SlidingWindowLog #RateLimitingAlgorithms #HighTrafficSystems
+
+The issue in the original formatting was that the content was enclosed in indented blocks, which Markdown interprets as code blocks. By removing the indentation, we ensure that the text is treated as regular paragraphs and lists. Is there anything else you'd like me to clarify or modify in this formatting?
 
 ### 8. How does the sliding window counter improve on the fixed window counter?
 
