@@ -19,6 +19,8 @@ We are currently reading the book which can be found free online at the followin
 12. [Chapter 6 - Q & A](https://github.com/vidyabhandary/SystemDesign/blob/main/Chapter6_QnA.md)
 13. [Chapter 7 - Notes](https://github.com/vidyabhandary/SystemDesign/blob/main/Chapter7_Notes.md)
 14. [Chapter 7 - Q & A](https://github.com/vidyabhandary/SystemDesign/blob/main/Chapter7_QnA.md)
+15. [Chapter 8 - Notes](https://github.com/vidyabhandary/SystemDesign/blob/main/Chapter8_Notes.md)
+16. [Chapter 8 - Q & A](https://github.com/vidyabhandary/SystemDesign/blob/main/Chapter8_QnA.md)
 
 ![](https://github.com/vidyabhandary/SystemDesign/blob/a30486c55cc9e5adee41fcb4266a330dd897e705/imgs/Tan-HI.png)
 
@@ -90,3 +92,15 @@ The speaker works for a company called Arceusium, which is a data-first company 
 28. [Database Caching](https://www.prisma.io/dataguide/managing-databases/introduction-database-caching)
 
 29. [What is a hot shard](https://opensearch.org/docs/latest/monitoring-your-cluster/pa/rca/shard-hotspot/)
+
+30. [Animated Rate Limiting](https://smudge.ai/blog/ratelimit-algorithms)
+
+31. [Rate limiter and its algorithms with illustrations](https://tech.groww.in/rate-limiter-and-its-algorithms-with-illustrations-564455162935)
+
+32. [Rate Limiter for a distributed and scalable system](https://tech.groww.in/rate-limiter-for-a-distributed-and-scalable-system-4a350ee1bb8a)
+
+33. [TLS/SSL Certificate Pinning Explained](https://www.youtube.com/watch?v=3coPpYJgFro)
+
+34. [SSL Pinning Explained](https://www.youtube.com/watch?v=efIPpIYBNTc)
+
+35. [DNS Cache poisoning](https://www.youtube.com/watch?v=7MT1F0O3_Yw)
