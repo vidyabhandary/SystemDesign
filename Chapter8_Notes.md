@@ -14,6 +14,7 @@
    #RateLimiting #APIProtection #SystemDesign
 
 2. Types of Overuse and Attacks
+
    2.1 Inadvertent Overuse:
 
    - Traffic spikes from legitimate or malicious sources
@@ -28,6 +29,7 @@
    #ServiceProtection #SecurityMeasures #AttackPrevention
 
 3. Alternatives to Rate Limiting and Their Limitations
+
    3.1 Scaling Out:
 
    - Adding more hosts during load spikes
@@ -70,6 +72,7 @@
    #FunctionalRequirements #ServiceConfiguration #Logging
 
 6. Non-Functional Requirements
+
    6.1 Scalability:
 
    - Handle billions of daily requests
@@ -113,6 +116,7 @@
    #ArchitectureDesign #SystemComponents #DataStorage
 
 8. Stateful vs. Stateless Approaches
+
    8.1 Stateless Approach:
 
    - Uses shared database for request counts
@@ -131,6 +135,7 @@
    #StatefulDesign #StatelessArchitecture #HybridSystems
 
 9. Rate-Limiting Algorithms
+
    9.1 Token Bucket:
 
    - Analogy of filling and depleting tokens
