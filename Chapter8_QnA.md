@@ -159,8 +159,6 @@ As a result, while this algorithm provides high accuracy, it's often not practic
 
 #SlidingWindowLog #RateLimitingAlgorithms #HighTrafficSystems
 
-The issue in the original formatting was that the content was enclosed in indented blocks, which Markdown interprets as code blocks. By removing the indentation, we ensure that the text is treated as regular paragraphs and lists. Is there anything else you'd like me to clarify or modify in this formatting?
-
 ### 8. How does the sliding window counter improve on the fixed window counter?
 
 **Answer:**  
