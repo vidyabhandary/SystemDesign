@@ -104,3 +104,5 @@ The speaker works for a company called Arceusium, which is a data-first company 
 34. [SSL Pinning Explained](https://www.youtube.com/watch?v=efIPpIYBNTc)
 
 35. [DNS Cache poisoning](https://www.youtube.com/watch?v=7MT1F0O3_Yw)
+
+36. [Rate Limiting at Figma](https://www.figma.com/blog/an-alternative-approach-to-rate-limiting/)
