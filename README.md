@@ -21,6 +21,8 @@ We are currently reading the book which can be found free online at the followin
 14. [Chapter 7 - Q & A](https://github.com/vidyabhandary/SystemDesign/blob/main/Chapter7_QnA.md)
 15. [Chapter 8 - Notes](https://github.com/vidyabhandary/SystemDesign/blob/main/Chapter8_Notes.md)
 16. [Chapter 8 - Q & A](https://github.com/vidyabhandary/SystemDesign/blob/main/Chapter8_QnA.md)
+17. [Chapter 9 - Notes](https://github.com/vidyabhandary/SystemDesign/blob/main/Chapter9_Notes.md)
+18. [Chapter 9 - Q & A](https://github.com/vidyabhandary/SystemDesign/blob/main/Chapter9_QnA.md)
 
 ![](https://github.com/vidyabhandary/SystemDesign/blob/a30486c55cc9e5adee41fcb4266a330dd897e705/imgs/Tan-HI.png)
 
@@ -106,3 +108,5 @@ The speaker works for a company called Arceusium, which is a data-first company 
 35. [DNS Cache poisoning](https://www.youtube.com/watch?v=7MT1F0O3_Yw)
 
 36. [Rate Limiting at Figma](https://www.figma.com/blog/an-alternative-approach-to-rate-limiting/)
+
+37. 1. [API Vs Service](https://github.com/vidyabhandary/TIL/blob/f0a33f8518382c6b1d9b1a8622f710259c2a0f5e/misc/APIvsService.md)
