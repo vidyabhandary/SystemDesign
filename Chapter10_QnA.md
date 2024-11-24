@@ -1,118 +1,168 @@
-# Chapter 9 - Design a notification/alerting service - (Q&A)
+# Chapter 10 - Design a database batch auditing service - (Q&A)
 
-### 1. Q: Why is it beneficial to create a centralized notification service?
+### **Introduction to Database Batch Auditing Service**
 
-A: A centralized notification service offers several benefits:
+**Q1. Why is data quality important in system design? Discuss its dimensions with examples.**  
+**A1.** Data quality ensures datasets are suitable for their intended purpose. Its dimensions include:
 
-1.  Reduces code duplication
-2.  Simplifies maintenance
-3.  Provides a consistent interface for other services
-4.  Allows for optimizations and improvements that benefit all consumers
-    #centralization #reusability
+- **Accuracy**: Data reflects real-world values (e.g., a product's price matches the database record).
+- **Completeness**: No missing values (e.g., all fields in a customer profile are populated).
+- **Consistency**: Data aligns across systems (e.g., identical records in multiple databases).
+- **Validity**: Adherence to formats and ranges (e.g., dates are in `YYYY-MM-DD` format).
+- **Uniqueness**: Absence of duplicates (e.g., unique transaction IDs).
+- **Timeliness**: Data availability when required (e.g., updated stock levels during peak sales).  
+  #DataQuality #Accuracy #Completeness
 
-### 2. Q: What are the key components of the high-level architecture for a notification service?
+**Q2. What are the two main approaches to data validation, and when would you use each?**  
+**A2.**
 
-A: The key components include:
+1. **Anomaly Detection**: Automated, uses historical data to identify outliers (e.g., sales spikes).
+2. **Manual Validations**: User-defined conditions to ensure rule adherence (e.g., timestamps within 24 hours).  
+    Use anomaly detection for dynamic, large-scale datasets and manual validations for rule-specific, deterministic checks.  
+   #DataValidation #AnomalyDetection
 
-1.  Frontend API Gateway: Handles authentication, rate limiting, and request routing
-2.  Backend Service: Manages core logic and coordinates between components
-3.  Channel-Specific Services: Handle delivery for each notification channel
-4.  Message Queues: Enable asynchronous processing and improved scalability
-5.  Template Service: Manages notification templates and personalization
-6.  Object Store: Stores large payloads like images or attachments
-7.  Logging Service: Centralizes logging for troubleshooting and auditing
-    This modular architecture allows for flexibility, scalability, and easier maintenance.
-    #system-architecture #components
+---
 
-### 3. Q: How should large media content be handled in notifications?
+### **Necessity of Auditing**
 
-A: For large media content:
+**Q3. Why might replication and backups fail to prevent data loss?**
+A3.Replication delays or leader node failures can result in data loss before backup completion.
 
-- Use links rather than embedding directly in the notification
-- Store large notification payload objects separately in an object store
-- Reference objects by ID in notification events
-  This approach reduces duplicate data in queues and keeps notification sizes manageable.
-  #object-store #data-model
+- **Quorum Consistency** ensures a majority of nodes acknowledge writes (e.g., in Cassandra).
+- Example: Data is written to an in-memory table and replicated before returning success, reducing loss risks.  
+  #DataLoss #QuorumConsistency
 
-### 4. Q: What are the main user types in a notification service?
+**Q4. Why is it insufficient to rely solely on database constraints and application-level validations?**  
+**A4.** Database constraints may be inflexible for evolving requirements, and applications may miss errors due to bugs. Batch audits add a safety net, ensuring legacy data is validated irrespective of earlier oversight.  
+ #DatabaseConstraints #ApplicationValidation
 
-A: The main user types are:
+---
 
-1.  Sender: Creates/manages notifications
-2.  Recipient: Receives notifications
-3.  Admin: Manages permissions, templates, etc.
-    #users #user-roles
+### **Manually Defined Validations**
 
-### 5. Q: What notification channels should a robust service support?
+**Q5. Explain how you can define a validation to ensure data integrity for daily user activity. Provide an example query.**  
+**A5.** Use SQL queries to define rules.
 
-A: A robust notification service should support multiple channels:
+- Example: Ensure users don't exceed five transactions/day:
+  ```sql
+  SELECT user_id, COUNT(*) AS cnt
+  FROM Transactions
+  WHERE Date(timestamp) = CURDATE() - INTERVAL 1 DAY
+  GROUP BY user_id
+  ```
+  Conditional Statement: `cnt <= 5` ensures integrity by detecting anomalies.  
+  #SQLValidation #DailyActivity
 
-- Browser notifications
-- Email
-- SMS
-- Automated phone calls
-- Mobile push notifications (Android, iOS)
-- In-app custom notifications
-  #notification-channels
+**Q6. What types of errors can batch audits detect that application-level validations might miss?**  
+**A6.**
 
-### 6. Q: How can scheduled notifications be implemented?
+- Legacy issues (e.g., a row with a 5-year future date due to initial validation gaps).
+- Anomalies requiring historical data (e.g., duplicate entries or missing records).  
+  #BatchAudits #ErrorDetection
 
-A: Scheduled notifications can be implemented by:
+---
 
-- Integrating with a job scheduler service (e.g., Airflow)
-- Generating notification events at scheduled times
-  #scheduled-notifications
+### **Audit Job Design**
 
-### 7. Q: What are the key non-functional requirements for a notification service?
+**Q7. Outline the workflow of a basic SQL batch auditing job.**  
+**A7.**
 
-A: The key non-functional requirements include:
+1. Execute SQL queries.
+2. Retrieve and process results.
+3. Validate against defined conditions.
+4. Log results and generate alerts if conditions fail.  
+    Example: Python scripts facilitate this process by integrating query execution and result validation.  
+   #AuditWorkflow #SQLAudits
 
-- Scale: Billions of notifications daily
-- Performance: Deliver within seconds
-- High Availability: 99.9% uptime
-- Fault Tolerance: Retry on failures
-- Security: Strict access controls
-- Privacy: Allow opt-outs
-  #non-functional-requirements
+**Q8. How can you optimize batch audits for large files or distributed systems?**  
+**A8.**
 
-### 8. Q: How can the notification service handle failed deliveries?
+- Use **LOAD DATA** in MySQL for fast imports before auditing with queries.
+- Leverage distributed systems like HDFS, Hive, or Spark for parallel processing.  
+  #LargeScaleAudits #DistributedSystems
 
-A: To handle failed deliveries, the service should:
+---
 
-- Implement retry logic with exponential backoff
-- Use dead letter queues for failed notifications
-- Alert on systemic delivery failures
-  #delivery-failures
+### **System Requirements**
 
-### 9. Q: What features should be included in the notification template system?
+**Q9. What are the functional and non-functional requirements for a batch auditing service?**  
+**A9.**
 
-A: The notification template system should include:
+- **Functional**: CRUD operations, scheduled execution, alerts for failures, job status logs.
+- **Non-Functional**: Scalability to 10,000 jobs, moderate availability, and secure job access controls.  
+  #SystemRequirements
 
-- Version control and change management
-- Parameterized content with placeholders for dynamic information
-- Type checking and validation
-- Search functionality
-  #template-service #notification-templates
+**Q10. How can you ensure audit jobs complete within defined intervals?**  
+**A10.** Limit query execution to 10 minutes during configuration and 15 minutes at runtime. Enforce termination and disable the job if thresholds are exceeded.  
+ #QueryLimits #ExecutionConstraints
 
-### 10. Q: How can the notification service implement prioritization?
+---
 
-A: To implement prioritization, the service should:
+### **High-Level Architecture**
 
-- Define multiple priority levels (e.g., 2-5)
-- Use separate queues for each priority
-- Ensure consumers process higher priorities first
-- Consider per-channel priority configurations
-  #priority-levels
+**Q11. Describe the components and interactions in a batch auditing service architecture.**  
+**A11.**
 
-### 11. Q: Why is it not recommended to use the notification service for monitoring the uptime of other services?
+- **Backend**: Generates configurations and manages interactions.
+- **Batch ETL Service**: Executes queries, processes results, and logs outcomes.
+- **Alerting Service**: Handles notifications for failures.
+- Integrates tools like Airflow for scheduling and distributed systems for scalability.  
+  #Architecture #BatchETL
 
-A: Using the notification service for uptime monitoring is not recommended because:
+---
 
-- It often shares the same infrastructure as the services it would be monitoring, meaning it could fail simultaneously with those services.
-- This approach can create circular dependencies between services.
-- Uptime monitoring requires independent infrastructure to be effective.
-  Instead, it's best to use a separate, independent system for uptime monitoring and alerting.
-  #uptime-monitoring #infrastructure #reliability
+### **Constraints and Optimization**
 
-  This approach ensures that critical notifications are delivered promptly while less urgent ones are processed as resources allow.
-  #priority-levels #queue-management
+**Q12. How do you prevent resource contention caused by simultaneous queries?**  
+**A12.**
+
+- Restrict concurrent queries using thread pools.
+- Monitor query latency and trigger alerts if thresholds are exceeded.
+- Introduce a query service to centralize execution and manage load.  
+  #ConcurrencyControl #ResourceOptimization
+
+**Q13. What pre-submission checks can prevent invalid queries?**  
+**A13.**
+
+- Disallow full table scans or unfiltered partitions.
+- Provide query execution plans to users with tuning recommendations.  
+  #QueryValidation #PreSubmissionChecks
+
+---
+
+### **Logging, Monitoring, and Alerts**
+
+**Q14. What logs and metrics are critical for monitoring audit jobs?**  
+**A14.**
+
+- Job statuses (e.g., started, succeeded, failed).
+- Query execution durations.
+- Backend response times (e.g., P99 latency).
+- Alerts for failures and upstream job issues.  
+  #Monitoring #AuditLogs
+
+---
+
+### **Advanced Features**
+
+**Q15. How can schema metadata improve query authoring in audits?**  
+**A15.** Suggest partition columns for WHERE filters or templates for recent partitions. Automatically update configurations for schema changes (e.g., column renaming).  
+ #MetadataUsage #SchemaUpdates
+
+**Q16. Why are cross-data center audits necessary, and how are they implemented?**  
+**A16.** Ensure consistency across replicas using sampling tests to compare data between data centers.  
+ #DataConsistency #CrossDataCenterAudits
+
+---
+
+### **Pipeline Integration**
+
+**Q17. How should a failed audit in a pipeline impact downstream jobs?**  
+**A17.**
+
+1. Disable downstream audits and dependent jobs.
+2. Notify owners of all affected jobs.
+3. Update metadata to flag problematic tables, preventing bad data propagation.  
+   #PipelineAudits #FailureManagement
+
+---
