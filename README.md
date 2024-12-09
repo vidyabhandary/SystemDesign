@@ -25,6 +25,8 @@ We are currently reading the book which can be found free online at the followin
 18. [Chapter 9 - Q & A](https://github.com/vidyabhandary/SystemDesign/blob/main/Chapter9_QnA.md)
 19. [Chapter 10 - Notes](https://github.com/vidyabhandary/SystemDesign/blob/main/Chapter10_Notes.md)
 20. [Chapter 10 - Q & A](https://github.com/vidyabhandary/SystemDesign/blob/main/Chapter10_QnA.md)
+21. [Chapter 11 - Notes](https://github.com/vidyabhandary/SystemDesign/blob/main/Chapter11_Notes.md)
+22. [Chapter 11 - Q & A](https://github.com/vidyabhandary/SystemDesign/blob/main/Chapter11_QnA.md)
 
 ![](https://github.com/vidyabhandary/SystemDesign/blob/a30486c55cc9e5adee41fcb4266a330dd897e705/imgs/Tan-HI.png)
 
@@ -148,3 +150,10 @@ The key insights are:
 - The difficulty of precisely specifying what we actually want (the "alignment problem")
 
 This thought experiment has become a classic example in AI safety discussions because it illustrates how even mundane-sounding objectives could lead to existential risks if we don't carefully consider how to align AI systems with human values and intentions.
+
+40. [Trie](https://www.youtube.com/watch?v=qA8l8TAMyig)
+41. [Bloom Filters](https://www.youtube.com/watch?v=heEDL9usFgs)
+42. [Bloom Filter Code](https://github.com/vidyabhandary/algorithms/tree/master/src/bloomfilter)
+43. [count-min sketch](https://www.youtube.com/watch?v=lGoCslwItiU)
+44. [Map Reduce - Filter, Map, Reduce explained in less than 2 minutes](https://www.youtube.com/watch?v=PZvHZJVeYdw)
+45. [A/B testing and multi-armed bandit](https://www.youtube.com/watch?v=HPl0ZtXqppM)
