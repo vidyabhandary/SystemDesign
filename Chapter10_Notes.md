@@ -2,158 +2,118 @@
 
 [Mindmap for designing a database batch audting service](https://github.com/vidyabhandary/SystemDesign/blob/69fcafdac14028a5b8f46de9e6a28e4b9658beab/imgs/DesignDatabaseBatchAudtingSystem.svg)
 
-### **Introduction to Database Batch Auditing Service**
+### **Database Batch Auditing Service Overview**
 
-**Q1. Why is data quality important in system design? Discuss its dimensions with examples.**  
-**A1.** Data quality ensures datasets are suitable for their intended purpose. Its dimensions include:
-
-- **Accuracy**: Data reflects real-world values (e.g., a product's price matches the database record).
-- **Completeness**: No missing values (e.g., all fields in a customer profile are populated).
-- **Consistency**: Data aligns across systems (e.g., identical records in multiple databases).
-- **Validity**: Adherence to formats and ranges (e.g., dates are in `YYYY-MM-DD` format).
-- **Uniqueness**: Absence of duplicates (e.g., unique transaction IDs).
-- **Timeliness**: Data availability when required (e.g., updated stock levels during peak sales).  
-  #DataQuality #Accuracy #Completeness
-
-**Q2. What are the two main approaches to data validation, and when would you use each?**  
-**A2.**
-
-1. **Anomaly Detection**: Automated, uses historical data to identify outliers (e.g., sales spikes).
-2. **Manual Validations**: User-defined conditions to ensure rule adherence (e.g., timestamps within 24 hours).  
-    Use anomaly detection for dynamic, large-scale datasets and manual validations for rule-specific, deterministic checks.  
-   #DataValidation #AnomalyDetection
+Design a system for scalable, periodic validation of database tables to maintain data quality and integrity.
 
 ---
 
-### **Necessity of Auditing**
+### **Key Concepts of Data Quality**
 
-**Q3. Why might replication and backups fail to prevent data loss?**
-A3.Replication delays or leader node failures can result in data loss before backup completion.
+1. **Accuracy**: Data reflects the true value.
+2. **Completeness**: All required data is present.
+3. **Consistency**: Data is uniform across locations and synchronized.
+4. **Validity**: Proper formatting and valid value ranges.
+5. **Uniqueness**: No duplicates or overlaps.
+6. **Timeliness**: Data is available when needed.
 
-- **Quorum Consistency** ensures a majority of nodes acknowledge writes (e.g., in Cassandra).
-- Example: Data is written to an in-memory table and replicated before returning success, reducing loss risks.  
-  #DataLoss #QuorumConsistency
+**Approaches**:
 
-**Q4. Why is it insufficient to rely solely on database constraints and application-level validations?**  
-**A4.** Database constraints may be inflexible for evolving requirements, and applications may miss errors due to bugs. Batch audits add a safety net, ensuring legacy data is validated irrespective of earlier oversight.  
- #DatabaseConstraints #ApplicationValidation
+- **Anomaly Detection**: Automatic irregularity detection.
+- **Manual Validations**: User-defined rules (e.g., timestamps < 24 hours).
+
+---
+
+### **Why Auditing is Necessary**
+
+1. **Data Loss Prevention**: Use quorum consistency or similar methods to mitigate risks of replication delays.
+2. **Invalid Data Handling**: Validate on ingestion (e.g., HTTP 4xx responses for invalid data).
+3. **Database Constraints**: Constraints maintain integrity but may limit flexibility; manual validations are often better for dynamic systems.
+4. **Error Cases**: Example: Silent errors like future-dated rows highlight the need for audits.
 
 ---
 
 ### **Manually Defined Validations**
 
-**Q5. Explain how you can define a validation to ensure data integrity for daily user activity. Provide an example query.**  
-**A5.** Use SQL queries to define rules.
-
-- Example: Ensure users don't exceed five transactions/day:
-  ```sql
-  SELECT user_id, COUNT(*) AS cnt
-  FROM Transactions
-  WHERE Date(timestamp) = CURDATE() - INTERVAL 1 DAY
-  GROUP BY user_id
-  ```
-  Conditional Statement: `cnt <= 5` ensures integrity by detecting anomalies.  
-  #SQLValidation #DailyActivity
-
-**Q6. What types of errors can batch audits detect that application-level validations might miss?**  
-**A6.**
-
-- Legacy issues (e.g., a row with a 5-year future date due to initial validation gaps).
-- Anomalies requiring historical data (e.g., duplicate entries or missing records).  
-  #BatchAudits #ErrorDetection
+1. **Single Column**: Check individual values (e.g., timestamps).
+2. **Aggregated Columns**: Group validations (e.g., ≤5 purchases/day per user).
+3. **Multi-Table**: Ensure integrity across joins (e.g., valid foreign keys).
+4. **Multi-Query**: Compare datasets (e.g., weekly sales changes).
 
 ---
 
-### **Audit Job Design**
-
-**Q7. Outline the workflow of a basic SQL batch auditing job.**  
-**A7.**
+### **Audit Job Workflow**
 
 1. Execute SQL queries.
-2. Retrieve and process results.
-3. Validate against defined conditions.
-4. Log results and generate alerts if conditions fail.  
-    Example: Python scripts facilitate this process by integrating query execution and result validation.  
-   #AuditWorkflow #SQLAudits
+2. Validate results using conditions.
+3. Generate alerts for failed conditions.
 
-**Q8. How can you optimize batch audits for large files or distributed systems?**  
-**A8.**
-
-- Use **LOAD DATA** in MySQL for fast imports before auditing with queries.
-- Leverage distributed systems like HDFS, Hive, or Spark for parallel processing.  
-  #LargeScaleAudits #DistributedSystems
+**Implementation**: Use scripts (e.g., Python) for database connectivity, query execution, and validation logic.
 
 ---
 
 ### **System Requirements**
 
-**Q9. What are the functional and non-functional requirements for a batch auditing service?**  
-**A9.**
+#### Functional:
 
-- **Functional**: CRUD operations, scheduled execution, alerts for failures, job status logs.
-- **Non-Functional**: Scalability to 10,000 jobs, moderate availability, and secure job access controls.  
-  #SystemRequirements
+1. CRUD operations for audit jobs.
+2. Scheduled execution (e.g., daily/hourly).
+3. Alerts for failures.
+4. Logs of job statuses and results.
 
-**Q10. How can you ensure audit jobs complete within defined intervals?**  
-**A10.** Limit query execution to 10 minutes during configuration and 15 minutes at runtime. Enforce termination and disable the job if thresholds are exceeded.  
- #QueryLimits #ExecutionConstraints
+#### Non-Functional:
+
+1. Scale to 10,000 jobs.
+2. Moderate availability; no strict uptime required.
+3. Secure access controls.
 
 ---
 
 ### **High-Level Architecture**
 
-**Q11. Describe the components and interactions in a batch auditing service architecture.**  
-**A11.**
+1. **Backend**: Generates and submits audit jobs.
+2. **Batch ETL Service**: Runs SQL jobs, manages results, and communicates alerts.
+3. **Alerting Service**: Triggers and logs alert statuses.
 
-- **Backend**: Generates configurations and manages interactions.
-- **Batch ETL Service**: Executes queries, processes results, and logs outcomes.
-- **Alerting Service**: Handles notifications for failures.
-- Integrates tools like Airflow for scheduling and distributed systems for scalability.  
-  #Architecture #BatchETL
+**Key Tools**:
+
+- Python templates for dynamic job creation.
+- Distributed platforms like Spark or Presto for scalability.
 
 ---
 
 ### **Constraints and Optimization**
 
-**Q12. How do you prevent resource contention caused by simultaneous queries?**  
-**A12.**
-
-- Restrict concurrent queries using thread pools.
-- Monitor query latency and trigger alerts if thresholds are exceeded.
-- Introduce a query service to centralize execution and manage load.  
-  #ConcurrencyControl #ResourceOptimization
-
-**Q13. What pre-submission checks can prevent invalid queries?**  
-**A13.**
-
-- Disallow full table scans or unfiltered partitions.
-- Provide query execution plans to users with tuning recommendations.  
-  #QueryValidation #PreSubmissionChecks
+1. **Query Time**:
+   - Limit to 10 minutes at configuration; terminate at 15 minutes runtime.
+2. **Query Restrictions**:
+   - No full table scans; restrict JOINs and unindexed queries.
+3. **Concurrency Control**:
+   - Limit simultaneous queries to avoid resource contention.
 
 ---
 
 ### **Logging, Monitoring, and Alerts**
 
-**Q14. What logs and metrics are critical for monitoring audit jobs?**  
-**A14.**
-
-- Job statuses (e.g., started, succeeded, failed).
-- Query execution durations.
-- Backend response times (e.g., P99 latency).
-- Alerts for failures and upstream job issues.  
-  #Monitoring #AuditLogs
+1. **Logs**: Job statuses, errors, and durations.
+2. **Monitoring**: Query durations, resource utilization.
+3. **Alerts**: Distinct urgency levels for failures.
 
 ---
 
-### **Pipeline Integration**
+### **Advanced Features**
 
-**Q15. How should a failed audit in a pipeline impact downstream jobs?**  
-**A15.**
+1. **Cross-Data Center Audits**: Ensure consistency across replicas.
+2. **Pipeline Integration**: Disable downstream jobs on failure; alert stakeholders.
+3. **Metadata Utilization**: Suggest query templates and schema-based optimizations.
 
-1. Disable downstream audits and dependent jobs.
-2. Notify owners of all affected jobs.
-3. Update metadata to flag problematic tables, preventing bad data propagation.  
-   #PipelineAudits #FailureManagement
+---
+
+### **Recommendations**
+
+1. Use Airflow for scheduling and scalability.
+2. Centralize query execution with a shared query service.
+3. Provide early user training and clear documentation.
 
 ---
 
