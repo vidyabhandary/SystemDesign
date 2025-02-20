@@ -29,6 +29,8 @@ We are currently reading the book which can be found free online at the followin
 22. [Chapter 11 - Q & A](https://github.com/vidyabhandary/SystemDesign/blob/main/Chapter11_QnA.md)
 23. [Chapter 12 - Notes](https://github.com/vidyabhandary/SystemDesign/blob/main/Chapter12_Notes.md)
 24. [Chapter 12 - Q & A](https://github.com/vidyabhandary/SystemDesign/blob/main/Chapter12_QnA.md)
+25. [Chapter 12 - Notes](https://github.com/vidyabhandary/SystemDesign/blob/main/Chapter13_Notes.md)
+26. [Chapter 12 - Q & A](https://github.com/vidyabhandary/SystemDesign/blob/main/Chapter13_QnA.md)
 
 ![](https://github.com/vidyabhandary/SystemDesign/blob/a30486c55cc9e5adee41fcb4266a330dd897e705/imgs/Tan-HI.png)
 
@@ -159,3 +161,6 @@ This thought experiment has become a classic example in AI safety discussions be
 43. [count-min sketch](https://www.youtube.com/watch?v=lGoCslwItiU)
 44. [Map Reduce - Filter, Map, Reduce explained in less than 2 minutes](https://www.youtube.com/watch?v=PZvHZJVeYdw)
 45. [A/B testing and multi-armed bandit](https://www.youtube.com/watch?v=HPl0ZtXqppM)
+46. [What is a CDN?](https://www.youtube.com/watch?v=RI9np1LWzqw)
+47. [How does DNS work?](https://www.youtube.com/watch?v=27r4Bzuj5NQ)
+48. [Hoes does live streaming work?](https://www.youtube.com/watch?v=7AMRfNKwuYo)
