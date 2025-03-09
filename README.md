@@ -29,8 +29,10 @@ We are currently reading the book which can be found free online at the followin
 22. [Chapter 11 - Q & A](https://github.com/vidyabhandary/SystemDesign/blob/main/Chapter11_QnA.md)
 23. [Chapter 12 - Notes](https://github.com/vidyabhandary/SystemDesign/blob/main/Chapter12_Notes.md)
 24. [Chapter 12 - Q & A](https://github.com/vidyabhandary/SystemDesign/blob/main/Chapter12_QnA.md)
-25. [Chapter 12 - Notes](https://github.com/vidyabhandary/SystemDesign/blob/main/Chapter13_Notes.md)
-26. [Chapter 12 - Q & A](https://github.com/vidyabhandary/SystemDesign/blob/main/Chapter13_QnA.md)
+25. [Chapter 13 - Notes](https://github.com/vidyabhandary/SystemDesign/blob/main/Chapter13_Notes.md)
+26. [Chapter 13 - Q & A](https://github.com/vidyabhandary/SystemDesign/blob/main/Chapter13_QnA.md)
+27. [Chapter 14 - Notes](https://github.com/vidyabhandary/SystemDesign/blob/main/Chapter14_Notes.md)
+28. [Chapter 14 - Q & A](https://github.com/vidyabhandary/SystemDesign/blob/main/Chapter14_QnA.md)
 
 ![](https://github.com/vidyabhandary/SystemDesign/blob/a30486c55cc9e5adee41fcb4266a330dd897e705/imgs/Tan-HI.png)
 
@@ -164,3 +166,7 @@ This thought experiment has become a classic example in AI safety discussions be
 46. [What is a CDN?](https://www.youtube.com/watch?v=RI9np1LWzqw)
 47. [How does DNS work?](https://www.youtube.com/watch?v=27r4Bzuj5NQ)
 48. [Hoes does live streaming work?](https://www.youtube.com/watch?v=7AMRfNKwuYo)
+49. [How Computers Synchronize Their Clocks - NTP and PTP Explained](https://www.youtube.com/watch?v=WX5E8x3pYqg)
+50. [NTP - The Obscure System That Syncs All The World’s Clocks](https://www.youtube.com/watch?v=CwZW0CO7F-g)
+51. [State design pattern](https://www.youtube.com/watch?v=VNZMpEPCMGI)
+52. [Restrict App installations per account](https://stackoverflow.com/questions/15064563/limit-restrict-app-installations-per-account-detemined-by-unique-devices)
