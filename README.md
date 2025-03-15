@@ -33,6 +33,8 @@ We are currently reading the book which can be found free online at the followin
 26. [Chapter 13 - Q & A](https://github.com/vidyabhandary/SystemDesign/blob/main/Chapter13_QnA.md)
 27. [Chapter 14 - Notes](https://github.com/vidyabhandary/SystemDesign/blob/main/Chapter14_Notes.md)
 28. [Chapter 14 - Q & A](https://github.com/vidyabhandary/SystemDesign/blob/main/Chapter14_QnA.md)
+27. [Chapter 15 - Notes](https://github.com/vidyabhandary/SystemDesign/blob/main/Chapter15_Notes.md)
+28. [Chapter 15 - Q & A](https://github.com/vidyabhandary/SystemDesign/blob/main/Chapter15_QnA.md)
 
 ![](https://github.com/vidyabhandary/SystemDesign/blob/a30486c55cc9e5adee41fcb4266a330dd897e705/imgs/Tan-HI.png)
 
