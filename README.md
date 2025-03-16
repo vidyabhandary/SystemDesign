@@ -33,8 +33,10 @@ We are currently reading the book which can be found free online at the followin
 26. [Chapter 13 - Q & A](https://github.com/vidyabhandary/SystemDesign/blob/main/Chapter13_QnA.md)
 27. [Chapter 14 - Notes](https://github.com/vidyabhandary/SystemDesign/blob/main/Chapter14_Notes.md)
 28. [Chapter 14 - Q & A](https://github.com/vidyabhandary/SystemDesign/blob/main/Chapter14_QnA.md)
-27. [Chapter 15 - Notes](https://github.com/vidyabhandary/SystemDesign/blob/main/Chapter15_Notes.md)
-28. [Chapter 15 - Q & A](https://github.com/vidyabhandary/SystemDesign/blob/main/Chapter15_QnA.md)
+29. [Chapter 15 - Notes](https://github.com/vidyabhandary/SystemDesign/blob/main/Chapter15_Notes.md)
+30. [Chapter 15 - Q & A](https://github.com/vidyabhandary/SystemDesign/blob/main/Chapter15_QnA.md)
+31. [Chapter 16 - Notes](https://github.com/vidyabhandary/SystemDesign/blob/main/Chapter16_Notes.md)
+32. [Chapter 16 - Q & A](https://github.com/vidyabhandary/SystemDesign/blob/main/Chapter16_QnA.md)
 
 ![](https://github.com/vidyabhandary/SystemDesign/blob/a30486c55cc9e5adee41fcb4266a330dd897e705/imgs/Tan-HI.png)
 
@@ -160,15 +162,43 @@ The key insights are:
 This thought experiment has become a classic example in AI safety discussions because it illustrates how even mundane-sounding objectives could lead to existential risks if we don't carefully consider how to align AI systems with human values and intentions.
 
 40. [Trie](https://www.youtube.com/watch?v=qA8l8TAMyig)
+
 41. [Bloom Filters](https://www.youtube.com/watch?v=heEDL9usFgs)
+
 42. [Bloom Filter Code](https://github.com/vidyabhandary/algorithms/tree/master/src/bloomfilter)
+
 43. [count-min sketch](https://www.youtube.com/watch?v=lGoCslwItiU)
+
 44. [Map Reduce - Filter, Map, Reduce explained in less than 2 minutes](https://www.youtube.com/watch?v=PZvHZJVeYdw)
+
 45. [A/B testing and multi-armed bandit](https://www.youtube.com/watch?v=HPl0ZtXqppM)
+
 46. [What is a CDN?](https://www.youtube.com/watch?v=RI9np1LWzqw)
+
 47. [How does DNS work?](https://www.youtube.com/watch?v=27r4Bzuj5NQ)
+
 48. [Hoes does live streaming work?](https://www.youtube.com/watch?v=7AMRfNKwuYo)
+
 49. [How Computers Synchronize Their Clocks - NTP and PTP Explained](https://www.youtube.com/watch?v=WX5E8x3pYqg)
+
 50. [NTP - The Obscure System That Syncs All The World’s Clocks](https://www.youtube.com/watch?v=CwZW0CO7F-g)
+
 51. [State design pattern](https://www.youtube.com/watch?v=VNZMpEPCMGI)
+
 52. [Restrict App installations per account](https://stackoverflow.com/questions/15064563/limit-restrict-app-installations-per-account-detemined-by-unique-devices)
+
+53. [What is DAG?](https://www.youtube.com/watch?v=1Yh5S-S6wsI)
+
+54. [What's a DAG, and Why Should I Care?](https://www.youtube.com/watch?v=IltIGJOHYgo)
+
+55. [Sharding](https://www.youtube.com/watch?v=0DzRdQ-sOTg)
+
+56. [Database Replication & Sharding Explained](https://www.youtube.com/watch?v=jLEp1XI_L6Q)
+
+57. [Partitioning Vs Sharding](https://github.com/vidyabhandary/til/blob/master/misc/PartioningVsSharding.md)
+
+58. [Consistent Hashing](https://github.com/vidyabhandary/til/blob/master/misc/ConsistentHashing.md)
+
+59. [Consistent Hashing | Algorithms You Should Know #1](https://www.youtube.com/watch?v=UF9Iqmg94tk)
+
+60. [What is Consistent Hashing and Where is it used?](https://www.youtube.com/watch?v=zaRkONvyGr8)
