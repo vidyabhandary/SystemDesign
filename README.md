@@ -37,6 +37,9 @@ We are currently reading the book which can be found free online at the followin
 30. [Chapter 15 - Q & A](https://github.com/vidyabhandary/SystemDesign/blob/main/Chapter15_QnA.md)
 31. [Chapter 16 - Notes](https://github.com/vidyabhandary/SystemDesign/blob/main/Chapter16_Notes.md)
 32. [Chapter 16 - Q & A](https://github.com/vidyabhandary/SystemDesign/blob/main/Chapter16_QnA.md)
+33. [Chapter 17 - Notes](https://github.com/vidyabhandary/SystemDesign/blob/main/Chapter17_Notes.md)
+34. [Chapter 17 - Q & A](https://github.com/vidyabhandary/SystemDesign/blob/main/Chapter17_QnA.md)
+
 
 ![](https://github.com/vidyabhandary/SystemDesign/blob/a30486c55cc9e5adee41fcb4266a330dd897e705/imgs/Tan-HI.png)
 
@@ -202,3 +205,11 @@ This thought experiment has become a classic example in AI safety discussions be
 59. [Consistent Hashing | Algorithms You Should Know #1](https://www.youtube.com/watch?v=UF9Iqmg94tk)
 
 60. [What is Consistent Hashing and Where is it used?](https://www.youtube.com/watch?v=zaRkONvyGr8)
+
+61. [Count - min sketch](https://www.youtube.com/watch?v=lGoCslwItiU)
+
+62. [Top K Problem - Heavy Hitters](https://www.youtube.com/watch?v=kx-XDoPjoHw)
+
+63. [Lambda architecture vs Kappa architecture](https://www.youtube.com/watch?v=waDJcSCXz_Y)
+
+64. [Spine Leaf Architecture](https://www.youtube.com/watch?v=xjc7WLBb-nI)
